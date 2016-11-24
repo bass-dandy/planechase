@@ -2,9 +2,10 @@
   "name": "planechase",
   "version": "1.0.0",
   "scripts": {
-    "watch-js": "watchify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o build/bundle.js",
     "build-css": "lessc -v main.less build/bundle.css",
-    "build": "npm run build-css && npm run watch-js"
+    "watch-css": "catw -v -w main.less -c 'npm run build-css'",
+    "watch-js": "watchify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o build/bundle.js",
+    "build": "trap 'kill %1; trap - SIGINT' SIGINT && npm run watch-css & npm run watch-js"
   },
   "author": "Christian Dinh",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.1",
+    "catw": "^1.0.1",
     "less": "^2.7.1",
     "lodash": "^4.17.2",
     "react": "^15.4.1",
