@@ -7,7 +7,7 @@
     "build": "npm run build-css && npm run build-js",
     "watch-css": "catw -v -w main.less -c 'npm run build-css'",
     "watch-js": "watchify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o build/bundle.js",
-    "watch": "trap 'kill %1; trap - SIGINT' SIGINT && npm run watch-css & npm run watch-js"
+    "dev": "trap 'kill %1; trap - SIGINT' SIGINT && npm run watch-css & npm run watch-js"
   },
   "author": "Christian Dinh",
   "license": "ISC",
