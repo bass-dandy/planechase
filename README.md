@@ -2,7 +2,7 @@ Ever wanted to play planechase but didn't want to pay for cards? There's an app 
 
 **Getting Started**
 - `npm install`
-- `npm run build` (or `npm run dev` to watchify)
-- Open up `index.html` in your browser
+- `npm run dev-server`
+- Navigate to `localhost:1337` in your browser
 - Chase planes
 
