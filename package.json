@@ -2,10 +2,10 @@
   "name": "planechase",
   "version": "1.0.0",
   "scripts": {
-    "build-css": "lessc -v main.less build/bundle.css",
+    "build-css": "lessc main.less build/bundle.css",
     "build-js": "browserify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o build/bundle.js",
     "build": "npm run build-css && npm run build-js",
-    "watch-css": "catw -v -w main.less -c 'npm run build-css'",
+    "watch-css": "catw -v -w 'src/**/*.less' -c 'npm run build-css'",
     "watch-js": "watchify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o build/bundle.js",
     "dev": "trap 'kill %1; trap - SIGINT' SIGINT && npm run watch-css & npm run watch-js"
   },
@@ -28,6 +28,7 @@
     "watchify": "^3.7.0"
   },
   "devDependencies": {
-    "eslint": "^3.10.2"
+    "eslint": "^3.10.2",
+    "eslint-plugin-react": "^6.7.1"
   }
 }
