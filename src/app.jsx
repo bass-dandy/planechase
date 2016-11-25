@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Card from './components/card.jsx';
+
 ReactDOM.render(
-	<h1>Hello world</h1>,
+	<Card imgUrl="img/planes/2009/bant.jpg"/>,
 	document.getElementById('root')
 );
+
