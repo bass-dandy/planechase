@@ -12,3 +12,4 @@ export default class SingleDeck extends React.Component {
 		);
 	}
 }
+
