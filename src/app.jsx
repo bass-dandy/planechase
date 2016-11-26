@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { Router, Route, Link, browserHistory } from 'react-router';
 
 import EternitiesMap from './containers/eternities-map/eternities-map.jsx';
 import SingleDeck from './containers/single-deck/single-deck.jsx';
+import CardSelector from './shared/card-selector.jsx';
+import store from './store.js';
 
 const App = (props) => {
 	return (
 		<div>
-			App
+			<CardSelector />
 			<Link to="single-deck">
 				Single Deck
 			</Link>
@@ -24,12 +27,15 @@ App.propTypes = {
 	children: React.PropTypes.object
 };
 
-ReactDOM.render((
-	<Router history={browserHistory}>
-		<Route path="/" component={App}>
-			<Route path="eternities-map" component={EternitiesMap}/>
-			<Route path="single-deck" component={SingleDeck}/>
-		</Route>
-	</Router>
-), document.getElementById('root'));
+const initialState = {};
 
+ReactDOM.render((
+	<Provider store={store(initialState)}>
+		<Router history={browserHistory}>
+			<Route path="/" component={App}>
+				<Route path="eternities-map" component={EternitiesMap}/>
+				<Route path="single-deck" component={SingleDeck}/>
+			</Route>
+		</Router>
+	</Provider>
+), document.getElementById('root'));
