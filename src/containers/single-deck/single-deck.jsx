@@ -25,7 +25,7 @@ class SingleDeck extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (!_.isEqual(this.props.cardPool), nextProps.cardPool) {
+		if (!_.isEqual(this.props.cardPool, nextProps.cardPool)) {
 			this.beginGame(nextProps.cardPool);
 		}
 	}
