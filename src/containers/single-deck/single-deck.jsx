@@ -4,16 +4,20 @@ import _ from 'lodash';
 
 import Card from '../../shared/card.jsx';
 import ControlPanel from './partials/control-panel.jsx';
+import Pinboard from './partials/pinboard.jsx';
 
 class SingleDeck extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			deck: []
+			deck: [],
+			pinned: []
 		};
 		this.planeswalk = this.planeswalk.bind(this);
 		this.shuffle = this.shuffle.bind(this);
+		this.pin = this.pin.bind(this);
+		this.unpin = this.unpin.bind(this);
 	}
 
 	componentWillMount() {
@@ -26,7 +30,8 @@ class SingleDeck extends React.Component {
 		});
 
 		this.setState({
-			deck: _.shuffle(cards)
+			deck: _.shuffle(cards),
+			pinned: []
 		});
 	}
 
@@ -43,6 +48,25 @@ class SingleDeck extends React.Component {
 		this.setState({deck: nextDeck});
 	}
 
+	pin() {
+		const nextDeck = _.clone(this.state.deck);
+		const nextPinned = _.clone(this.state.pinned);
+		nextPinned.push(nextDeck.shift());
+		this.setState({
+			deck: nextDeck,
+			pinned: nextPinned
+		});
+	}
+
+	unpin(card) {
+		const nextDeck = _.concat(this.state.deck, card);
+		const nextPinned = _.without(this.state.pinned, card);
+		this.setState({
+			deck: nextDeck,
+			pinned: nextPinned
+		});
+	}
+
 	render() {
 		return(
 			<div className="single-deck">
@@ -52,6 +76,11 @@ class SingleDeck extends React.Component {
 				<ControlPanel
 					planeswalk={this.planeswalk}
 					shuffle={this.shuffle}
+					pin={this.pin}
+				/>
+				<Pinboard
+					cards={this.state.pinned}
+					unpin={this.unpin}
 				/>
 			</div>
 		);

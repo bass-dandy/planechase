@@ -5,7 +5,7 @@ import PlaneswalkerIcon from '../../../shared/planeswalker-icon.jsx';
 export default function ControlPanel(props) {
 	return (
 		<div className="control-panel">
-			<button onClick={props.shuffle}>
+			<button onClick={props.pin}>
 				<MaterialIcon name="add_to_photos" />
 			</button>
 			<button onClick={props.shuffle}>
@@ -20,5 +20,6 @@ export default function ControlPanel(props) {
 
 ControlPanel.propTypes = {
 	planeswalk: React.PropTypes.func.isRequired,
-	shuffle: React.PropTypes.func.isRequired
+	shuffle: React.PropTypes.func.isRequired,
+	pin: React.PropTypes.func.isRequired
 };
