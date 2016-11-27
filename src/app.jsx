@@ -1,23 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 
+import DropdownMenu from './shared/dropdown-menu.jsx';
 import EternitiesMap from './containers/eternities-map/eternities-map.jsx';
 import SingleDeck from './containers/single-deck/single-deck.jsx';
-import CardSelector from './shared/card-selector.jsx';
 import store from './store.js';
 
 const App = (props) => {
 	return (
 		<div>
-			<CardSelector />
-			<Link to="single-deck">
-				Single Deck
-			</Link>
-			<Link to="eternities-map">
-				Eternities Map
-			</Link>
+			<DropdownMenu />
 			{props.children}
 		</div>
 	);
