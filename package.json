@@ -2,7 +2,7 @@
   "name": "planechase",
   "version": "1.0.0",
   "scripts": {
-    "build-css": "lessc main.less build/bundle.css",
+    "build-css": "lessc --strict-math=on main.less build/bundle.css",
     "build-js": "browserify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o build/bundle.js",
     "build": "npm run build-css && npm run build-js",
     "watch-css": "catw -v -w 'src/**/*.less' -c 'npm run build-css'",
