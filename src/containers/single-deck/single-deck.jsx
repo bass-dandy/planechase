@@ -68,7 +68,7 @@ class SingleDeck extends React.Component {
 	}
 
 	render() {
-		const revealedCard = this.state.deck.length > 0 ? _.head(this.state.deck) : <Card />
+		const revealedCard = this.state.deck.length > 0 ? _.head(this.state.deck) : <Card />;
 
 		return(
 			<div className="single-deck">
