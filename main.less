@@ -1,1 +1,30 @@
+@color-white: #ffffff;
+@color-0: #475159;
+@color-1: #839795;
+@color-2: #B2BDB7;
+@color-3: #CCC9C0;
+@color-4: #F2F2F2;
+
+@import url(https://fonts.googleapis.com/css?family=Dosis);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+html body {
+	padding: 0;
+	margin: 0;
+	background-color: @color-white;
+	font-family: 'Dosis', sans-serif;
+	color: @color-0;
+}
+
+button {
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+}
+
 @import "./src/shared/_components";
+@import "./src/containers/single-deck/single-deck";
