@@ -2,11 +2,11 @@
   "name": "planechase",
   "version": "1.0.0",
   "scripts": {
-    "build-css": "lessc --strict-math=on main.less build/bundle.css",
-    "build-js": "browserify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o build/bundle.js",
+    "build-css": "lessc --strict-math=on main.less public/build/bundle.css",
+    "build-js": "browserify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o public/build/bundle.js",
     "build": "npm run build-css && npm run build-js",
     "watch-css": "catw -v -w 'src/**/*.less' -c 'npm run build-css'",
-    "watch-js": "watchify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o build/bundle.js",
+    "watch-js": "watchify -v -t [ babelify --presets [ latest react ] ] src/app.jsx -o public/build/bundle.js",
     "dev": "trap 'kill %1; trap - SIGINT' SIGINT && npm run watch-css & npm run watch-js",
     "dev-server": "npm run dev & node server.js"
   },
@@ -20,7 +20,6 @@
     "browserify": "^13.1.1",
     "catw": "^1.0.1",
     "express": "^4.14.0",
-    "finalhandler": "^0.5.1",
     "less": "^2.7.1",
     "lodash": "^4.17.2",
     "react": "^15.4.1",
@@ -29,7 +28,6 @@
     "react-router": "^3.0.0",
     "redux": "^3.6.0",
     "request": "^2.79.0",
-    "serve-static": "^1.11.1",
     "watchify": "^3.7.0"
   },
   "devDependencies": {
