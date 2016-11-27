@@ -4,9 +4,10 @@ import _ from 'lodash';
 import MaterialIcon from '../../../shared/material-icon.jsx';
 
 export default function Pinboard(props) {
-	const pinnedCards = _.map(props.cards, (card) => {
+	const pinnedCards = _.map(props.cards, (card, i) => {
 		return (
-			<div className="pinned-card">
+			// using index as key here is okay since these cannot be reordered
+			<div className="pinned-card" key={i}>
 				<button
 					className="unpin-card"
 					onClick={_.partial(props.unpin, card)}
