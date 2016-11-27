@@ -1,9 +1,14 @@
+// Utility colors
 @color-white: #ffffff;
-@color-0: #475159;
-@color-1: #839795;
-@color-2: #B2BDB7;
-@color-3: #CCC9C0;
-@color-4: #F2F2F2;
+@color-black: #000000;
+@color-red: #af0000;
+
+// Theme colors
+@color-darker: #1A1F2B;
+@color-dark: #30395C;
+@color-light: #4A6491;
+@color-lighter: #85A5CC;
+@color-lightest: #D0E4F2;
 
 @import url(https://fonts.googleapis.com/css?family=Dosis);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
@@ -11,14 +16,13 @@
 html body {
 	padding: 0;
 	margin: 0;
-	background-color: @color-white;
+	background-color: @color-darker;
 	font-family: 'Dosis', sans-serif;
-	color: @color-0;
+	color: @color-lightest;
 }
 
 button {
 	border: none;
-	border-radius: 100px;
 	cursor: pointer;
 
 	&:focus {

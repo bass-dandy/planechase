@@ -1,16 +1,45 @@
 .pinboard {
 	position: absolute;
 	top: 0;
+	bottom: 0;
 	left: 0;
-	padding: 10px;
+	background-color: @color-dark;
+	box-shadow: 1px 0 20px 0 @color-black;
 
-	.card {
-		display: block;
-		width: 200px;
-		margin-bottom: 10px;
+	.header {
+		padding-top: 5px;
+		color: @color-lightest;
+		text-align: center;
+	}
 
-		&:last-child {
-			margin-bottom: 0;
+	.pinned-cards {
+		padding: 10px;
+
+		.pinned-card {
+			position: relative;
+			margin-bottom: 10px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			.unpin-card {
+				position: absolute;
+				top: -5px;
+				right: -5px;
+				height: 1.5rem;
+				width: 1.5rem;
+				padding: 0;
+				border-radius: 50%;
+				background-color: @color-red;
+				color: @color-white;
+				box-shadow: 0 2px 5px 0 @color-black;
+				font-size: 1rem;
+			}
+
+			.card {
+				width: 200px;
+			}
 		}
 	}
 }
