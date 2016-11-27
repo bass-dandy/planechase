@@ -21,11 +21,17 @@ class SingleDeck extends React.Component {
 	}
 
 	componentWillMount() {
-		this.beginGame();
+		this.beginGame(this.props.cardPool);
 	}
 
-	beginGame() {
-		const cards = _.map(this.props.cardPool, (url) => {
+	componentWillReceiveProps(nextProps) {
+		if (!_.isEqual(this.props.cardPool), nextProps.cardPool) {
+			this.beginGame(nextProps.cardPool);
+		}
+	}
+
+	beginGame(cardPool) {
+		const cards = _.map(cardPool, (url) => {
 			return <Card imgUrl={url} key={url} />;
 		});
 
