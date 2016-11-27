@@ -1,12 +1,11 @@
 import React from 'react';
 
 export default function Card(props) {
-	return (
-		<img className="card" src={props.imgUrl} />
-	);
+	const src = props.imgUrl ? props.imgUrl : 'img/card-back.jpg';
+	return <img className="card" src={src} />;
 }
 
 Card.propTypes = {
-	imgUrl: React.PropTypes.string.isRequired
+	imgUrl: React.PropTypes.string
 };
 

@@ -68,12 +68,15 @@ class SingleDeck extends React.Component {
 	}
 
 	render() {
+		const revealedCard = this.state.deck.length > 0 ? _.head(this.state.deck) : <Card />
+
 		return(
 			<div className="single-deck">
 				<div className="card-container">
-					{_.head(this.state.deck)}
+					{revealedCard}
 				</div>
 				<ControlPanel
+					disabled={this.state.deck.length <= 0}
 					planeswalk={this.planeswalk}
 					shuffle={this.shuffle}
 					pin={this.pin}
