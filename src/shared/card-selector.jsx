@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { actions } from '../modules/actions.js';
 import Checkbox from './checkbox.jsx';
+import HttpClient from '../lib/http-client.js';
 
 function CardCheckbox(props) {
 	const label = _.chain(props.cardUrl)
@@ -41,11 +42,13 @@ class CardSelector extends React.Component {
 	}
 
 	componentDidMount() {
-		const cardUrls = ['img/planes/2009/bant.jpg', 'img/planes/2012/glen-elendra.jpg'];
-
-		this.setState({
-			cardUrls: cardUrls,
-			checkedCardUrls: _.clone(cardUrls)
+		const httpClient = new HttpClient();
+		httpClient.get('./api/card-urls', (err, res) => {
+			const cardUrls = JSON.parse(res);
+			this.setState({
+				cardUrls: cardUrls,
+				checkedCardUrls: _.clone(cardUrls)
+			});
 		});
 	}
 

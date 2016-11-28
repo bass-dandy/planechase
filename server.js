@@ -17,7 +17,8 @@ function getPathsInDirectory(dirname, callback) {
 		_.pull(files, '.DS_Store');
 
 		var paths = _.map(files, function(file) {
-			return dirname + '/' + file;
+			var staticPath = _.replace(dirname, 'public/', '/');
+			return staticPath + '/' + file;
 		})
 		callback(err, paths);
 	});
