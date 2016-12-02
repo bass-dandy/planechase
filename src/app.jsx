@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 
-import DropdownMenu from './shared/dropdown-menu.jsx';
+import Overlay from './containers/overlay/overlay.jsx';
 import EternitiesMap from './containers/eternities-map/eternities-map.jsx';
 import SingleDeck from './containers/single-deck/single-deck.jsx';
 import store from './store.js';
@@ -11,7 +11,7 @@ import store from './store.js';
 const App = (props) => {
 	return (
 		<div>
-			<DropdownMenu />
+			<Overlay />
 			{props.children}
 		</div>
 	);
@@ -21,7 +21,9 @@ App.propTypes = {
 	children: React.PropTypes.object
 };
 
-const initialState = {};
+const initialState = {
+	shouldShowCardSelector: false
+};
 
 ReactDOM.render((
 	<Provider store={store(initialState)}>

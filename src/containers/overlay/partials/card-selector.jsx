@@ -2,9 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 
-import { actions } from '../modules/actions.js';
-import Checkbox from './checkbox.jsx';
-import HttpClient from '../lib/http-client.js';
+import { actions } from '../../../modules/actions.js';
+import Checkbox from '../../../shared/checkbox.jsx';
+import HttpClient from '../../../lib/http-client.js';
 
 function CardCheckbox(props) {
 	const label = _.chain(props.cardUrl)

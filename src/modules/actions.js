@@ -7,6 +7,20 @@ function setCardPool(cardPool) {
 	};
 }
 
+function showCardSelector() {
+	return {
+		type: ACTION_TYPES.SHOW_CARD_SELECTOR
+	};
+}
+
+function hideCardSelector() {
+	return {
+		type: ACTION_TYPES.HIDE_CARD_SELECTOR
+	};
+}
+
 export const actions = {
-	setCardPool
+	setCardPool,
+	showCardSelector,
+	hideCardSelector
 };

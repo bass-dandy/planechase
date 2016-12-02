@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import CardSelector from './card-selector.jsx';
-import MaterialIcon from './material-icon.jsx';
+import { actions } from '../../../modules/actions.js';
+import MaterialIcon from '../../../shared/material-icon.jsx';
 
-export default class DropdownMenu extends React.Component {
+class DropdownMenu extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -26,16 +27,16 @@ export default class DropdownMenu extends React.Component {
 						to="single-deck"
 						className="menu-item"
 					>
-						Single Deck
+						Play Single Deck
 					</Link>
 					<Link
 						to="eternities-map"
 						className="menu-item"
 					>
-						Eternities Map
+						Play Eternities Map
 					</Link>
-					<div className="menu-item">
-						<CardSelector />
+					<div className="menu-item" onClick={this.props.showCardSelector}>
+						Edit Card Set
 					</div>
 				</div>
 			</div>
@@ -54,3 +55,17 @@ export default class DropdownMenu extends React.Component {
 		);
 	}
 }
+
+DropdownMenu.propTypes = {
+	showCardSelector: React.PropTypes.func.isRequired
+};
+
+function mapDispatchToProps(dispatch) {
+	return {
+		showCardSelector() {
+			dispatch(actions.showCardSelector());
+		}
+	};
+}
+
+export default connect(null, mapDispatchToProps)(DropdownMenu);
