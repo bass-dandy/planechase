@@ -16,8 +16,8 @@
 
 	.modal-dialog {
 		width: 700px;
-		padding: 10px;
 		border-radius: 15px;
+		border: 1px solid @color-darker;
 		box-shadow: 0 5px 15px 0 @color-shadow;
 		background-color: @color-dark;
 
@@ -28,22 +28,35 @@
 		transform: translate(-50%, -50%);
 
 		.modal-header {
-			text-align: right;
+			padding: 10px;
+			border-bottom: 1px solid @color-darker;
 
 			.modal-close {
+				float: right;
 				background-color: transparent;
+				vertical-align: middle;
+				color: @color-lightest;
+
+				&:hover {
+					color: @color-light;
+				}
 
 				.material-icons {
-					color: @color-lightest;
 					font-size: 1rem;
 				}
 			}
 		}
 
-		.modal-content {
-			width: 100%;
-			height: 500px;
+		.modal-body {
+			height: 400px;
 			overflow: auto;
+			padding: 10px;
+		}
+
+		.modal-footer {
+			padding: 10px;
+			border-top: 1px solid @color-darker;
+			text-align: right;
 		}
 	}
 }

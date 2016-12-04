@@ -14,11 +14,20 @@ class Overlay extends React.Component {
 			<div>
 				<DropdownMenu />
 				<Modal
-					close
-					onClose={this.props.hideCardSelector}
+					onHide={this.props.hideCardSelector}
 					show={this.props.shouldShowCardSelector}
 				>
-					<CardSelector />
+					<Modal.Header closeButton>
+						Edit Card Set
+					</Modal.Header>
+					<Modal.Body>
+						<CardSelector />
+					</Modal.Body>
+					<Modal.Footer>
+						<button>
+							Apply
+						</button>
+					</Modal.Footer>
 				</Modal>
 			</div>
 		);
@@ -32,7 +41,7 @@ Overlay.propTypes = {
 
 function mapStateToProps(state) {
 	return {
-		shouldShowCardSelector: _.get(state, 'shouldShowCardSelector', [])
+		shouldShowCardSelector: _.get(state, 'shouldShowCardSelector', false)
 	};
 }
 
