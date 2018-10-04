@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 
@@ -26,8 +27,8 @@ function CardCheckbox(props) {
 }
 
 CardCheckbox.propTypes = {
-	cardUrl: React.PropTypes.string.isRequired,
-	onChange: React.PropTypes.func.isRequired
+	cardUrl: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired
 };
 
 class CardSelector extends React.Component {
@@ -89,7 +90,7 @@ class CardSelector extends React.Component {
 }
 
 CardSelector.propTypes = {
-	setCardPool: React.PropTypes.func.isRequired
+	setCardPool: PropTypes.func.isRequired
 };
 
 function mapDispatchToProps(dispatch) {

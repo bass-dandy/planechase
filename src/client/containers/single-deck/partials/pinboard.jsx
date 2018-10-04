@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import MaterialIcon from '../../../shared/material-icon.jsx';
@@ -34,6 +35,6 @@ export default function Pinboard(props) {
 }
 
 Pinboard.propTypes = {
-	cards: React.PropTypes.array.isRequired,
-	unpin: React.PropTypes.func.isRequired
+	cards: PropTypes.array.isRequired,
+	unpin: PropTypes.func.isRequired
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 
@@ -18,7 +19,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-	children: React.PropTypes.object
+	children: PropTypes.object
 };
 
 const initialState = {

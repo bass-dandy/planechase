@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MaterialIcon from '../../../shared/material-icon.jsx';
 import PlaneswalkerIcon from '../../../shared/planeswalker-icon.jsx';
 
@@ -19,10 +20,10 @@ export default function ControlPanel(props) {
 }
 
 ControlPanel.propTypes = {
-	disabled: React.PropTypes.bool,
-	planeswalk: React.PropTypes.func.isRequired,
-	shuffle: React.PropTypes.func.isRequired,
-	pin: React.PropTypes.func.isRequired
+	disabled: PropTypes.bool,
+	planeswalk: PropTypes.func.isRequired,
+	shuffle: PropTypes.func.isRequired,
+	pin: PropTypes.func.isRequired
 };
 
 ControlPanel.defaultProps = {

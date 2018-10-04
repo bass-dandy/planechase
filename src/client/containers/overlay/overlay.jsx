@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
@@ -35,8 +36,8 @@ class Overlay extends React.Component {
 }
 
 Overlay.propTypes = {
-	hideCardSelector: React.PropTypes.func.isRequired,
-	shouldShowCardSelector: React.PropTypes.bool.isRequired
+	hideCardSelector: PropTypes.func.isRequired,
+	shouldShowCardSelector: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {

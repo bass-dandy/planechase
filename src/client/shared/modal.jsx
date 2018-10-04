@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MaterialIcon from './material-icon.jsx';
 
 export default class Modal extends React.Component {
@@ -25,9 +26,9 @@ export default class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-	children: React.PropTypes.object,
-	onHide: React.PropTypes.func,
-	show: React.PropTypes.bool
+	children: PropTypes.object,
+	onHide: PropTypes.func,
+	show: PropTypes.bool
 };
 
 Modal.defaultProps = {
@@ -35,7 +36,7 @@ Modal.defaultProps = {
 };
 
 Modal.childContextTypes = {
-	onHide: React.PropTypes.func
+	onHide: PropTypes.func
 };
 
 Modal.Header = function ModalHeader(props, context) {
@@ -57,8 +58,8 @@ Modal.Header = function ModalHeader(props, context) {
 };
 
 Modal.Header.propTypes = {
-	children: React.PropTypes.object,
-	closeButton: React.PropTypes.bool
+	children: PropTypes.object,
+	closeButton: PropTypes.bool
 };
 
 Modal.Header.defaultProps = {
@@ -66,7 +67,7 @@ Modal.Header.defaultProps = {
 };
 
 Modal.Header.contextTypes = {
-	onHide: React.PropTypes.func
+	onHide: PropTypes.func
 };
 
 Modal.Body = function ModalBody(props) {
@@ -78,7 +79,7 @@ Modal.Body = function ModalBody(props) {
 };
 
 Modal.Body.propTypes = {
-	children: React.PropTypes.object
+	children: PropTypes.object
 };
 
 Modal.Footer = function ModalFooter(props) {
@@ -90,5 +91,5 @@ Modal.Footer = function ModalFooter(props) {
 };
 
 Modal.Footer.propTypes = {
-	children: React.PropTypes.object
+	children: PropTypes.object
 };

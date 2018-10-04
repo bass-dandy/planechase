@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
@@ -57,7 +58,7 @@ class DropdownMenu extends React.Component {
 }
 
 DropdownMenu.propTypes = {
-	showCardSelector: React.PropTypes.func.isRequired
+	showCardSelector: PropTypes.func.isRequired
 };
 
 function mapDispatchToProps(dispatch) {

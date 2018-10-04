@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const EMPTY_CARD_URL = 'img/card-back.jpg';
+const EMPTY_CARD_URL = 'static/img/card-back.jpg';
 
 export default function Card(props) {
 	const src = props.imgUrl ? props.imgUrl : EMPTY_CARD_URL;
@@ -8,5 +9,5 @@ export default function Card(props) {
 }
 
 Card.propTypes = {
-	imgUrl: React.PropTypes.string
+	imgUrl: PropTypes.string
 };

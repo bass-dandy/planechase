@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
@@ -97,7 +98,7 @@ class SingleDeck extends React.Component {
 }
 
 SingleDeck.propTypes = {
-	cardPool: React.PropTypes.array.isRequired
+	cardPool: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {

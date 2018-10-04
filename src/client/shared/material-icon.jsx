@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function MaterialIcon(props) {
 	return (
@@ -7,5 +8,5 @@ export default function MaterialIcon(props) {
 }
 
 MaterialIcon.propTypes = {
-	name: React.PropTypes.string.isRequired
+	name: PropTypes.string.isRequired
 };
