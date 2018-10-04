@@ -1,15 +1,15 @@
 {
-	"parser": "babel-eslint",
-	"extends": "eslint:recommended",
-	"ecmaFeatures": {
-		"jsx": true,
-		"modules": true
+	"parserOptions": {
+		"ecmaVersion": 9,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
 	},
+	"extends": "eslint:recommended",
 	"env": {
 		"browser": true,
-		"node": true,
-		"mocha": true,
-		"es6": true
+		"node": true
 	},
 	"rules": {
 		// require file to end with single newline
@@ -68,8 +68,6 @@
 		"react/no-direct-mutation-state": 1,
 		// don't allow unknown props like `class`
 		"react/no-unknown-property": 2,
-		// don't allow '.jsx' or '.js' extensions in require calls
-		"import/extensions": 2,
 		// jsx tags should be self closing if they don't have children
 		"react/self-closing-comp": 2,
 		// multiline jsx should be wrapped in parens
@@ -142,13 +140,12 @@
 		"no-console": 1
 	},
 	"plugins": [
-		"import",
 		"react"
 	],
 	"settings": {
 		"react": {
 			"pragma": "React", // Pragma to use, default to "React"
-			"version": "14.0"  // React version, default to the latest React stable release
+			"version": "16.0"  // React version, default to the latest React stable release
 		}
 	}
 }
