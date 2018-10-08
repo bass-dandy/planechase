@@ -1,39 +1,9 @@
-// Utility colors
-@color-white: #ffffff;
-@color-black: #000000;
-@color-red: #af0000;
-@color-gray-light: #dfdfdf;
-@color-gray-dark: #8e8e8e;
-@color-shadow: rgba(0, 0, 0, 0.5);
-
-// Theme colors
-@color-darker: #1A1F2B;
-@color-dark: #30395C;
-@color-light: #4A6491;
-@color-lighter: #85A5CC;
-@color-lightest: #D0E4F2;
+@import "./components/deck-dashboard/deck-dashboard";
+@import "./components/card-list/card-list";
 
 html body {
 	padding: 0;
 	margin: 0;
-	background-color: @color-darker;
-	font-family: 'Dosis', sans-serif;
-	color: @color-lightest;
+	font-family: 'Roboto', sans-serif;
+	background-color: #eee;
 }
-
-button {
-	border: none;
-	cursor: pointer;
-
-	&:focus {
-		outline: none;
-	}
-
-	&:disabled {
-		cursor: default;
-	}
-}
-
-@import "./shared/_components";
-@import "./containers/overlay/partials/_partials";
-@import "./containers/single-deck/single-deck";

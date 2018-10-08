@@ -1,0 +1,29 @@
+.decks {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 210px;
+	background-color: white;
+	box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+	z-index: 500;
+
+	.decks-title {
+		padding: 10px;
+		vertical-align: middle;
+		border-bottom: 1px solid #ddd;
+
+		.add-deck {
+			margin-left: 5px;
+			padding: 3px;
+		}
+	}
+
+	.decks-list {
+		padding: 0 10px;
+		flex: 1;
+		overflow: auto;
+	}
+}
