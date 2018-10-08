@@ -24,6 +24,25 @@ export default class EditDialog extends React.Component {
 		cards: {}
 	}
 
+	onEnter = () => {
+		const {cards} = this.state;
+
+		// select cards previously added to deck
+		_.forEach(this.props.deck.cards, (url) => {
+			cards[url] = true;
+		});
+
+		this.setState({cards});
+	}
+
+	onClose = () => {
+		// uncheck all cards
+		this.setState({
+			cards: _.mapValues(this.state.cards, () => false)
+		});
+		this.props.onClose();
+	}
+
 	onCheck = (cardUrl) => {
 		this.setState({
 			cards: _.set(this.state.cards, cardUrl, !this.state.cards[cardUrl])
@@ -40,7 +59,7 @@ export default class EditDialog extends React.Component {
 				return acc;
 			}, [])
 		});
-		this.props.onClose();
+		this.onClose();
 	}
 
 	componentDidMount() {
@@ -50,17 +69,12 @@ export default class EditDialog extends React.Component {
 			.get('./api/card-urls')
 			.then((res) => {
 				// convert card url array into object of form {url: bool} where bool represents selection state
-				const cards = _.reduce(res, (acc, url) => {
-					acc[url] = false;
-					return acc;
-				}, {})
-
-				// select cards previously added to deck
-				_.forEach(this.props.deck.cards, (url) => {
-					cards[url] = true;
+				this.setState({
+					cards: _.reduce(res, (acc, url) => {
+						acc[url] = false;
+						return acc;
+					}, {})
 				});
-
-				this.setState({cards});
 			});
 	}
 
@@ -68,7 +82,8 @@ export default class EditDialog extends React.Component {
 		return (
 			<Dialog
 				open={this.props.open}
-				onClose={this.props.onClose}
+				onClose={this.onClose}
+				onEnter={this.onEnter}
 			>
 				<DialogTitle>Edit Deck</DialogTitle>
 				<DialogContent>
@@ -84,7 +99,7 @@ export default class EditDialog extends React.Component {
 					onCheck={this.onCheck}
 				/>
 				<DialogActions>
-					<Button onClick={this.props.onClose}>
+					<Button onClick={this.onClose}>
 						Cancel
 					</Button>
 					<Button onClick={this.submit} color="primary">
