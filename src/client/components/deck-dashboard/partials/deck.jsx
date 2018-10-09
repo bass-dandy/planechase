@@ -8,6 +8,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import EditDialog from './edit-dialog';
 import PlaneswalkIcon from '../../planeswalk-icon';
@@ -43,6 +44,7 @@ export default class Deck extends React.Component {
 
 	render() {
 		const {deck} = this.props;
+		const cardActionsDisabled = _.get(deck, 'cards.length', 0) === 0;
 
 		return (
 			<div className="deck">
@@ -52,18 +54,24 @@ export default class Deck extends React.Component {
 				<div className="img-container" onClick={() => this.props.setMainDeckId(deck.id)}>
 					<img src={_.get(deck, 'cards[0]', '../static/img/card-back.jpg')}/>
 					<div className="deck-actions">
-						<IconButton
-							className="deck-action"
-							onClick={this.planeswalk}
-						>
-							<PlaneswalkIcon fontSize="small"/>
-						</IconButton>
-						<IconButton
-							className="deck-action"
-							onClick={this.shuffle}
-						>
-							<Icon fontSize="small">shuffle</Icon>
-						</IconButton>
+						<Tooltip placement="right" title="Planeswalk">
+							<IconButton
+								className="deck-action"
+								onClick={this.planeswalk}
+								disabled={cardActionsDisabled}
+							>
+								<PlaneswalkIcon fontSize="small"/>
+							</IconButton>
+						</Tooltip>
+						<Tooltip placement="right" title="Shuffle">
+							<IconButton
+								className="deck-action"
+								onClick={this.shuffle}
+								disabled={cardActionsDisabled}
+							>
+								<Icon fontSize="small">shuffle</Icon>
+							</IconButton>
+						</Tooltip>
 						<IconButton
 							className="deck-action"
 							onClick={(e) => this.setState({ menuAnchor: e.currentTarget })}

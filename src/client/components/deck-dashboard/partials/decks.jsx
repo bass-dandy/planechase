@@ -14,7 +14,6 @@ export default function Decks(props) {
 				<IconButton
 					className="add-deck"
 					onClick={props.addDeck}
-					color="primary"
 				>
 					<Icon>add_circle</Icon>
 				</IconButton>
