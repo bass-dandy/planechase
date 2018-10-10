@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import ResizeObserver from 'resize-observer-polyfill';
 
-import PlaneswalkIcon from '../planeswalk-icon';
+import ChaosIcon from '../chaos-icon';
 
 export default class Nav extends React.Component {
 
@@ -29,7 +29,7 @@ export default class Nav extends React.Component {
 			>
 				<div className="nav-title">
 					<div className="nav-title-icon">
-						<PlaneswalkIcon/>
+						<ChaosIcon/>
 					</div>
 					<h1 className="nav-title-text">
 						Planechase

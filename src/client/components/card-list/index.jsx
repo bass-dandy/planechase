@@ -10,20 +10,20 @@ import Checkbox from '@material-ui/core/Checkbox';
 export default function CardList(props) {
 	return (
 		<List className="card-list">
-			{ _.map(props.cardUrls, (isChecked, url) => {
+			{ _.map(props.cards, (isChecked, card) => {
 				return (
 					<ListItem
-						key={url}
+						key={card}
 						dense
 						button
-						onClick={() => props.onCheck(url)}
+						onClick={() => props.onCheck(card)}
 					>
 						<Checkbox
 							checked={isChecked}
 							disableRipple
 							tabIndex={-1}
 						/>
-						<ListItemText primary={_.startCase(_.last(url.replace('.jpg', '').split('/')))}/>
+						<ListItemText primary={_.startCase(_.last(card.replace('.jpg', '').split('/')))}/>
 					</ListItem>
 				);
 			}) }
@@ -32,6 +32,6 @@ export default function CardList(props) {
 }
 
 CardList.propTypes = {
-	cardUrls: PropTypes.object,
+	cards: PropTypes.object,
 	onCheck: PropTypes.func.isRequired
 };

@@ -3,51 +3,35 @@
 
 	.deck-name {
 		width: 100%;
+		margin-bottom: 5px;
 		font-size: 0.8rem;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
 
-	.img-container {
+	.deck-actions {
+		display: inline-block;
+		position: relative;
 		height: 100px;
-		margin-top: 5px;
+		width: 30px;
 
-		.deck-actions {
-			display: inline-block;
-			position: relative;
-			height: 100%;
-			width: 30px;
+		.deck-action {
+			padding: 3px;
+			position: absolute;
+			right: 0;
 
-			.deck-action {
-				padding: 3px;
-				position: absolute;
-				right: 0;
-
-				&:first-child {
-					top: 0;
-				}
-
-				&:nth-child(2) {
-					top: 50%;
-					transform: translateY(-50%);
-				}
-
-				&:last-child {
-					bottom: 0;
-				}
+			&:first-child {
+				top: 0;
 			}
-		}
 
-		img {
-			height: 100%;
-			border-radius: 7px;
-			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
-			transition: transform 0.1s;
+			&:nth-child(2) {
+				top: 50%;
+				transform: translateY(-50%);
+			}
 
-			&:hover {
-				cursor: pointer;
-				transform: scale(1.05, 1.05);
+			&:last-child {
+				bottom: 0;
 			}
 		}
 	}

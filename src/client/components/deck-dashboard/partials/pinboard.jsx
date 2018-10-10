@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
+import CardButton from '../../card-button';
+
 export default function Pinboard(props) {
 	return (
 		<div className="pinboard">
-			{ _.map(props.cardUrls, (url) => {
+			{ _.map(props.cards, (card) => {
 				return (
-					<img
-						key={url}
-						src={url}
-						onClick={() => props.unpinCard(url)}
+					<CardButton
+						key={card}
+						card={card}
+						onClick={() => props.unpinCard(card)}
 					/>
 				);
 			}) }
@@ -19,6 +21,6 @@ export default function Pinboard(props) {
 }
 
 Pinboard.propTypes = {
-	cardUrls: PropTypes.array.isRequired,
+	cards: PropTypes.array.isRequired,
 	unpinCard: PropTypes.func.isRequired
 };

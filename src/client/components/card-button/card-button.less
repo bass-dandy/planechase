@@ -1,0 +1,24 @@
+.card-button {
+	border: 0;
+	margin: 0;
+	padding: 0;
+
+	img {
+		width: 150px;
+		border-radius: 7px;
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+		transition: transform 0.1s;
+	}
+
+	&:hover {
+		cursor: pointer;
+
+		img {
+			transform: scale(1.05, 1.05);
+		}
+	}
+
+	&:focus {
+		outline: 0;
+	}
+}

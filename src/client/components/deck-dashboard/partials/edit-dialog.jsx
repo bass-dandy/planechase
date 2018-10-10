@@ -28,8 +28,8 @@ export default class EditDialog extends React.Component {
 		const {cards} = this.state;
 
 		// select cards previously added to deck
-		_.forEach(this.props.deck.cards, (url) => {
-			cards[url] = true;
+		_.forEach(this.props.deck.cards, (card) => {
+			cards[card] = true;
 		});
 
 		this.setState({cards});
@@ -43,18 +43,18 @@ export default class EditDialog extends React.Component {
 		this.props.onClose();
 	}
 
-	onCheck = (cardUrl) => {
+	onCheck = (card) => {
 		this.setState({
-			cards: _.set(this.state.cards, cardUrl, !this.state.cards[cardUrl])
+			cards: _.set(this.state.cards, card, !this.state.cards[card])
 		});
 	}
 
 	submit = () => {
 		this.props.deck.edit({
 			name: this.state.name,
-			cards: _.reduce(this.state.cards, (acc, isChecked, url) => {
+			cards: _.reduce(this.state.cards, (acc, isChecked, card) => {
 				if (isChecked) {
-					acc.push(url);
+					acc.push(card);
 				}
 				return acc;
 			}, [])
@@ -70,8 +70,8 @@ export default class EditDialog extends React.Component {
 			.then((res) => {
 				// convert card url array into object of form {url: bool} where bool represents selection state
 				this.setState({
-					cards: _.reduce(res, (acc, url) => {
-						acc[url] = false;
+					cards: _.reduce(res, (acc, card) => {
+						acc[card] = false;
 						return acc;
 					}, {})
 				});
@@ -95,7 +95,7 @@ export default class EditDialog extends React.Component {
 					/>
 				</DialogContent>
 				<CardList
-					cardUrls={this.state.cards}
+					cards={this.state.cards}
 					onCheck={this.onCheck}
 				/>
 				<DialogActions>

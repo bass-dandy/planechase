@@ -31,6 +31,9 @@ export default class DeckDashboard extends React.Component {
 				remove() {
 					self.removeDeck(id);
 				},
+				save() {
+					self.saveDeck(id);
+				},
 				shuffle() {
 					self.shuffleDeck(id);
 				}
@@ -74,21 +77,25 @@ export default class DeckDashboard extends React.Component {
 		});
 	}
 
+	saveDeck = (id) => {
+		// TODO: save to localStorage
+	}
+
 	shuffleDeck = (id) => {
 		this._updateDeck(id, (deck) => {
 			deck.cards = _.shuffle(deck.cards);
 		});
 	}
 
-	pinCard = (url) => {
+	pinCard = (card) => {
 		this.setState({
-			pinnedCards: _.union(this.state.pinnedCards, [url])
+			pinnedCards: _.union(this.state.pinnedCards, [card])
 		});
 	}
 
-	unpinCard = (url) => {
+	unpinCard = (card) => {
 		this.setState({
-			pinnedCards: _.without(this.state.pinnedCards, url)
+			pinnedCards: _.without(this.state.pinnedCards, card)
 		});
 	}
 
@@ -109,7 +116,7 @@ export default class DeckDashboard extends React.Component {
 					setMainDeckId={this.setMainDeckId}
 				/>
 				<Pinboard
-					cardUrls={this.state.pinnedCards}
+					cards={this.state.pinnedCards}
 					unpinCard={this.unpinCard}
 				/>
 			</div>
