@@ -9,7 +9,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import TextField from '@material-ui/core/TextField';
 
 import CardList from '../../card-list';
-import request from '../../../lib/http-client';
+import CARDS from '../../../cards.json';
 
 export default class EditDialog extends React.Component {
 
@@ -21,40 +21,44 @@ export default class EditDialog extends React.Component {
 
 	state = {
 		name: '',
-		cards: {}
+		selectedCards: {}
 	}
 
 	onEnter = () => {
-		const {cards} = this.state;
+		const {selectedCards} = this.state;
 
 		// select cards previously added to deck
 		_.forEach(this.props.deck.cards, (card) => {
-			cards[card] = true;
+			selectedCards[card.name] = true;
 		});
 
-		this.setState({cards});
+		this.setState({selectedCards});
 	}
 
 	onClose = () => {
 		// uncheck all cards
 		this.setState({
-			cards: _.mapValues(this.state.cards, () => false)
+			selectedCards: _.mapValues(this.state.selectedCards, () => false)
 		});
 		this.props.onClose();
 	}
 
-	onCheck = (card) => {
+	onCheck = (cardName) => {
 		this.setState({
-			cards: _.set(this.state.cards, card, !this.state.cards[card])
+			selectedCards: _.set(
+				this.state.selectedCards,
+				cardName,
+				!this.state.selectedCards[cardName]
+			)
 		});
 	}
 
 	submit = () => {
 		this.props.deck.edit({
 			name: this.state.name,
-			cards: _.reduce(this.state.cards, (acc, isChecked, card) => {
+			cards: _.reduce(this.state.selectedCards, (acc, isChecked, cardName) => {
 				if (isChecked) {
-					acc.push(card);
+					acc.push(CARDS[cardName]);
 				}
 				return acc;
 			}, [])
@@ -65,17 +69,13 @@ export default class EditDialog extends React.Component {
 	componentDidMount() {
 		this.setState({name: this.props.deck.name});
 
-		request
-			.get('./api/card-urls')
-			.then((res) => {
-				// convert card url array into object of form {url: bool} where bool represents selection state
-				this.setState({
-					cards: _.reduce(res, (acc, card) => {
-						acc[card] = false;
-						return acc;
-					}, {})
-				});
-			});
+		// convert card array into object of form {name: bool} where bool represents selection state
+		this.setState({
+			selectedCards: _.reduce(CARDS, (acc, card) => {
+				acc[card.name] = false;
+				return acc;
+			}, {})
+		});
 	}
 
 	render() {
@@ -95,7 +95,7 @@ export default class EditDialog extends React.Component {
 					/>
 				</DialogContent>
 				<CardList
-					cards={this.state.cards}
+					selectedCards={this.state.selectedCards}
 					onCheck={this.onCheck}
 				/>
 				<DialogActions>

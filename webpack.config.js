@@ -4,8 +4,8 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const config = {
 	stats: 'normal',
 	entry: {
-		js: path.resolve(__dirname, './src/client/index.jsx'),
-		css: path.resolve(__dirname, './src/client/main.less')
+		js: path.resolve(__dirname, './src/index.jsx'),
+		css: path.resolve(__dirname, './src/main.less')
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),

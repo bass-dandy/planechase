@@ -89,13 +89,13 @@ export default class DeckDashboard extends React.Component {
 
 	pinCard = (card) => {
 		this.setState({
-			pinnedCards: _.union(this.state.pinnedCards, [card])
+			pinnedCards: _.unionBy(this.state.pinnedCards, [card], 'name')
 		});
 	}
 
 	unpinCard = (card) => {
 		this.setState({
-			pinnedCards: _.without(this.state.pinnedCards, card)
+			pinnedCards: _.filter(this.state.pinnedCards, (pinnedCard) => pinnedCard.name !== card.name)
 		});
 	}
 

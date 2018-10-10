@@ -12,7 +12,7 @@ export default function MainDeck(props) {
 	return (
 		<div className="main-deck">
 			<div className="card-container">
-				<img src={_.get(props, 'deck.cards[0]', '../static/img/card-back.jpg')}/>
+				<img src={_.get(props, 'deck.cards[0].url', '../static/img/card-back.jpg')}/>
 			</div>
 			<Tooltip placement="bottom" title="Planeswalk">
 				<IconButton

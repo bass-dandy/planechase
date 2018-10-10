@@ -10,7 +10,7 @@ export default function Pinboard(props) {
 			{ _.map(props.cards, (card) => {
 				return (
 					<CardButton
-						key={card}
+						key={card.name}
 						card={card}
 						onClick={() => props.unpinCard(card)}
 					/>
