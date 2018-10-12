@@ -13,7 +13,7 @@ export default function Decks(props) {
 				Planar Decks
 				<IconButton
 					className="add-deck"
-					onClick={props.addDeck}
+					onClick={() => props.addDeck() /* addDeck accepts args, so avoid passing it the syntheticEvent */}
 				>
 					<Icon>add_circle</Icon>
 				</IconButton>

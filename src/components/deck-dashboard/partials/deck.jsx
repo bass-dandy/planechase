@@ -12,6 +12,10 @@ import PlaneswalkIcon from '../../planeswalk-icon';
 
 export default class Deck extends React.Component {
 
+	static propTypes = {
+		deck: PropTypes.object.isRequired
+	}
+
 	state = {
 		showEditDialog: false
 	}
@@ -69,7 +73,3 @@ export default class Deck extends React.Component {
 		);
 	}
 }
-
-Deck.propTypes = {
-	deck: PropTypes.object.isRequired
-};

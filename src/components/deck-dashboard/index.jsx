@@ -13,31 +13,32 @@ export default class DeckDashboard extends React.Component {
 		mainDeckId: ''
 	}
 
-	addDeck = () => {
-		const id = Date.now();
+	addDeck = (id = Date.now(), name = '', cards = []) => {
 		const self = this;
 
-		this.setState({
-			decks: _.concat(this.state.decks, {
-				id,
-				name: '',
-				cards: [],
-				edit(change) {
-					self.editDeck(id, change);
-				},
-				planeswalk() {
-					self.planeswalkDeck(id);
-				},
-				remove() {
-					self.removeDeck(id);
-				},
-				save() {
-					self.saveDeck(id);
-				},
-				shuffle() {
-					self.shuffleDeck(id);
-				}
-			})
+		this.setState((prevState) => {
+			return {
+				decks: [...prevState.decks, {
+					id,
+					name,
+					cards,
+					edit(change) {
+						self.editDeck(id, change);
+					},
+					planeswalk() {
+						self.planeswalkDeck(id);
+					},
+					remove() {
+						self.removeDeck(id);
+					},
+					save() {
+						self.saveDeck(id);
+					},
+					shuffle() {
+						self.shuffleDeck(id);
+					}
+				}]
+			}
 		});
 	}
 
@@ -45,6 +46,13 @@ export default class DeckDashboard extends React.Component {
 		this.setState({
 			decks: _.reject(this.state.decks, {id})
 		});
+		const savedDecksJSON = localStorage.getItem('savedDecks');
+		let savedDecks = {};
+
+		if (savedDecksJSON) {
+			savedDecks = _.omit(JSON.parse(savedDecksJSON), id);
+			localStorage.setItem('savedDecks', JSON.stringify(savedDecks));
+		}
 	}
 
 	_updateDeck = (id, updateFn) => {
@@ -78,7 +86,19 @@ export default class DeckDashboard extends React.Component {
 	}
 
 	saveDeck = (id) => {
-		// TODO: save to localStorage
+		const savedDecksJSON = localStorage.getItem('savedDecks');
+		let savedDecks = {};
+
+		if (savedDecksJSON) {
+			savedDecks = JSON.parse(savedDecksJSON);
+		}
+
+		savedDecks[id] = _.pick(
+			_.find(this.state.decks, {id}),
+			['name', 'cards']
+		);
+
+		localStorage.setItem('savedDecks', JSON.stringify(savedDecks));
 	}
 
 	shuffleDeck = (id) => {
@@ -101,6 +121,18 @@ export default class DeckDashboard extends React.Component {
 
 	setMainDeckId = (id) => {
 		this.setState({mainDeckId: id});
+	}
+
+	componentDidMount() {
+		// hydrate deck list from localStorage if able
+		const savedDecksJSON = localStorage.getItem('savedDecks');
+
+		if (savedDecksJSON) {
+			const savedDecks = JSON.parse(savedDecksJSON);
+			_.forEach(savedDecks, (deck, id) => {
+				this.addDeck(id, deck.name, deck.cards);
+			});
+		}
 	}
 
 	render() {
