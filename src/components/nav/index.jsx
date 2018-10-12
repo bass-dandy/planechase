@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import ResizeObserver from 'resize-observer-polyfill';
 
+import PlanarDie from './partials/planar-die';
 import ChaosIcon from '../chaos-icon';
 
 export default class Nav extends React.Component {
@@ -38,6 +39,7 @@ export default class Nav extends React.Component {
 				<div className="nav-content">
 					{this.props.children}
 				</div>
+				<PlanarDie/>
 			</div>
 		);
 	}
