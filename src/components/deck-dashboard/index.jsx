@@ -5,6 +5,8 @@ import Decks from './partials/decks';
 import MainDeck from './partials/main-deck';
 import Pinboard from './partials/pinboard';
 
+import CARDS from '../../cards.json';
+
 export default class DeckDashboard extends React.Component {
 
 	state = {
@@ -84,10 +86,12 @@ export default class DeckDashboard extends React.Component {
 				savedDecks = JSON.parse(savedDecksJSON);
 			}
 
-			savedDecks[id] = _.pick(
-				_.find(this.state.decks, {id}),
-				['name', 'cards']
-			);
+			const deckToSave = _.find(this.state.decks, {id});
+
+			savedDecks[id] = {
+				name: deckToSave.name,
+				cards: _.map(deckToSave.cards, 'id')
+			};
 
 			localStorage.setItem('savedDecks', JSON.stringify(savedDecks));
 		});
@@ -135,7 +139,11 @@ export default class DeckDashboard extends React.Component {
 		if (savedDecksJSON) {
 			const savedDecks = JSON.parse(savedDecksJSON);
 			_.forEach(savedDecks, (deck, id) => {
-				this.addDeck(id, deck.name, deck.cards);
+				this.addDeck(
+					id,
+					deck.name,
+					_.map(deck.cards, (cardId) => CARDS[cardId])
+				);
 			});
 		}
 	}

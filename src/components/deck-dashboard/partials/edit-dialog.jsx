@@ -29,7 +29,7 @@ export default class EditDialog extends React.Component {
 
 		// select cards previously added to deck
 		_.forEach(this.props.deck.cards, (card) => {
-			selectedCards[card.name] = true;
+			selectedCards[card.id] = true;
 		});
 
 		this.setState({selectedCards});
@@ -43,12 +43,12 @@ export default class EditDialog extends React.Component {
 		this.props.onClose();
 	}
 
-	onCheck = (cardName) => {
+	onCheck = (cardId) => {
 		this.setState({
 			selectedCards: _.set(
 				this.state.selectedCards,
-				cardName,
-				!this.state.selectedCards[cardName]
+				cardId,
+				!this.state.selectedCards[cardId]
 			)
 		});
 	}
@@ -56,9 +56,9 @@ export default class EditDialog extends React.Component {
 	submit = () => {
 		this.props.deck.edit({
 			name: this.state.name,
-			cards: _.reduce(this.state.selectedCards, (acc, isChecked, cardName) => {
+			cards: _.reduce(this.state.selectedCards, (acc, isChecked, cardId) => {
 				if (isChecked) {
-					acc.push(CARDS[cardName]);
+					acc.push(CARDS[cardId]);
 				}
 				return acc;
 			}, [])
@@ -71,8 +71,8 @@ export default class EditDialog extends React.Component {
 
 		// convert card array into object of form {name: bool} where bool represents selection state
 		this.setState({
-			selectedCards: _.reduce(CARDS, (acc, card) => {
-				acc[card.name] = false;
+			selectedCards: _.reduce(CARDS, (acc, card, cardId) => {
+				acc[cardId] = false;
 				return acc;
 			}, {})
 		});

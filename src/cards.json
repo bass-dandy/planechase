@@ -1,518 +1,690 @@
 {
-  "Academy At Tolaria West": {
-    "url": "../static/img/planes/2009/academy-at-tolaria-west.jpg",
+  "academy-at-tolaria-west": {
+    "id": "academy-at-tolaria-west",
+    "url": "img/cards/2009/planechase-2009/plane/academy-at-tolaria-west.jpg",
     "name": "Academy At Tolaria West",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Agyrem": {
-    "url": "../static/img/planes/2009/agyrem.jpg",
+  "agyrem": {
+    "id": "agyrem",
+    "url": "img/cards/2009/planechase-2009/plane/agyrem.jpg",
     "name": "Agyrem",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Bant": {
-    "url": "../static/img/planes/2009/bant.jpg",
+  "bant": {
+    "id": "bant",
+    "url": "img/cards/2009/planechase-2009/plane/bant.jpg",
     "name": "Bant",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Celestine Reef Pre Release Promo": {
-    "url": "../static/img/planes/2009/celestine-reef-pre-release-promo.jpg",
-    "name": "Celestine Reef Pre Release Promo",
-    "year": "2009",
-    "type": "plane"
-  },
-  "Cliffside Market": {
-    "url": "../static/img/planes/2009/cliffside-market.jpg",
+  "cliffside-market": {
+    "id": "cliffside-market",
+    "url": "img/cards/2009/planechase-2009/plane/cliffside-market.jpg",
     "name": "Cliffside Market",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Eloren Wilds": {
-    "url": "../static/img/planes/2009/eloren-wilds.jpg",
+  "eloren-wilds": {
+    "id": "eloren-wilds",
+    "url": "img/cards/2009/planechase-2009/plane/eloren-wilds.jpg",
     "name": "Eloren Wilds",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Feeding Grounds": {
-    "url": "../static/img/planes/2009/feeding-grounds.jpg",
+  "feeding-grounds": {
+    "id": "feeding-grounds",
+    "url": "img/cards/2009/planechase-2009/plane/feeding-grounds.jpg",
     "name": "Feeding Grounds",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Fields Of Summer": {
-    "url": "../static/img/planes/2009/fields-of-summer.jpg",
+  "fields-of-summer": {
+    "id": "fields-of-summer",
+    "url": "img/cards/2009/planechase-2009/plane/fields-of-summer.jpg",
     "name": "Fields Of Summer",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Glimmervoid Basin": {
-    "url": "../static/img/planes/2009/glimmervoid-basin.jpg",
+  "glimmervoid-basin": {
+    "id": "glimmervoid-basin",
+    "url": "img/cards/2009/planechase-2009/plane/glimmervoid-basin.jpg",
     "name": "Glimmervoid Basin",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Goldmeadow": {
-    "url": "../static/img/planes/2009/goldmeadow.jpg",
+  "goldmeadow": {
+    "id": "goldmeadow",
+    "url": "img/cards/2009/planechase-2009/plane/goldmeadow.jpg",
     "name": "Goldmeadow",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Grixis": {
-    "url": "../static/img/planes/2009/grixis.jpg",
+  "grixis": {
+    "id": "grixis",
+    "url": "img/cards/2009/planechase-2009/plane/grixis.jpg",
     "name": "Grixis",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Horizon Boughs Gateway Promo": {
-    "url": "../static/img/planes/2009/horizon-boughs-gateway-promo.jpg",
-    "name": "Horizon Boughs Gateway Promo",
-    "year": "2009",
-    "type": "plane"
-  },
-  "Immersturm": {
-    "url": "../static/img/planes/2009/immersturm.jpg",
+  "immersturm": {
+    "id": "immersturm",
+    "url": "img/cards/2009/planechase-2009/plane/immersturm.jpg",
     "name": "Immersturm",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Isle Of Vesuva": {
-    "url": "../static/img/planes/2009/isle-of-vesuva.jpg",
+  "isle-of-vesuva": {
+    "id": "isle-of-vesuva",
+    "url": "img/cards/2009/planechase-2009/plane/isle-of-vesuva.jpg",
     "name": "Isle Of Vesuva",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Izzet Steam Maze": {
-    "url": "../static/img/planes/2009/izzet-steam-maze.jpg",
+  "izzet-steam-maze": {
+    "id": "izzet-steam-maze",
+    "url": "img/cards/2009/planechase-2009/plane/izzet-steam-maze.jpg",
     "name": "Izzet Steam Maze",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Krosa": {
-    "url": "../static/img/planes/2009/krosa.jpg",
+  "krosa": {
+    "id": "krosa",
+    "url": "img/cards/2009/planechase-2009/plane/krosa.jpg",
     "name": "Krosa",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Lethe Lake": {
-    "url": "../static/img/planes/2009/lethe-lake.jpg",
+  "lethe-lake": {
+    "id": "lethe-lake",
+    "url": "img/cards/2009/planechase-2009/plane/lethe-lake.jpg",
     "name": "Lethe Lake",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Llanowar": {
-    "url": "../static/img/planes/2009/llanowar.jpg",
+  "llanowar": {
+    "id": "llanowar",
+    "url": "img/cards/2009/planechase-2009/plane/llanowar.jpg",
     "name": "Llanowar",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Minamo": {
-    "url": "../static/img/planes/2009/minamo.jpg",
+  "minamo": {
+    "id": "minamo",
+    "url": "img/cards/2009/planechase-2009/plane/minamo.jpg",
     "name": "Minamo",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Mirrored Depths": {
-    "url": "../static/img/planes/2009/mirrored-depths.jpg",
-    "name": "Mirrored Depths",
-    "year": "2009",
-    "type": "plane"
-  },
-  "Murasa": {
-    "url": "../static/img/planes/2009/murasa.jpg",
+  "murasa": {
+    "id": "murasa",
+    "url": "img/cards/2009/planechase-2009/plane/murasa.jpg",
     "name": "Murasa",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Naar Isle": {
-    "url": "../static/img/planes/2009/naar-isle.jpg",
+  "naar-isle": {
+    "id": "naar-isle",
+    "url": "img/cards/2009/planechase-2009/plane/naar-isle.jpg",
     "name": "Naar Isle",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Naya": {
-    "url": "../static/img/planes/2009/naya.jpg",
+  "naya": {
+    "id": "naya",
+    "url": "img/cards/2009/planechase-2009/plane/naya.jpg",
     "name": "Naya",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Otaria": {
-    "url": "../static/img/planes/2009/otaria.jpg",
+  "otaria": {
+    "id": "otaria",
+    "url": "img/cards/2009/planechase-2009/plane/otaria.jpg",
     "name": "Otaria",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Panopticon": {
-    "url": "../static/img/planes/2009/panopticon.jpg",
+  "panopticon": {
+    "id": "panopticon",
+    "url": "img/cards/2009/planechase-2009/plane/panopticon.jpg",
     "name": "Panopticon",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Pools Of Becoming": {
-    "url": "../static/img/planes/2009/pools-of-becoming.jpg",
+  "pools-of-becoming": {
+    "id": "pools-of-becoming",
+    "url": "img/cards/2009/planechase-2009/plane/pools-of-becoming.jpg",
     "name": "Pools Of Becoming",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Ravens Run": {
-    "url": "../static/img/planes/2009/ravens-run.jpg",
+  "ravens-run": {
+    "id": "ravens-run",
+    "url": "img/cards/2009/planechase-2009/plane/ravens-run.jpg",
     "name": "Ravens Run",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Sanctum Of Serra": {
-    "url": "../static/img/planes/2009/sanctum-of-serra.jpg",
+  "sanctum-of-serra": {
+    "id": "sanctum-of-serra",
+    "url": "img/cards/2009/planechase-2009/plane/sanctum-of-serra.jpg",
     "name": "Sanctum Of Serra",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Sea Of Sand": {
-    "url": "../static/img/planes/2009/sea-of-sand.jpg",
+  "sea-of-sand": {
+    "id": "sea-of-sand",
+    "url": "img/cards/2009/planechase-2009/plane/sea-of-sand.jpg",
     "name": "Sea Of Sand",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Shiv": {
-    "url": "../static/img/planes/2009/shiv.jpg",
+  "shiv": {
+    "id": "shiv",
+    "url": "img/cards/2009/planechase-2009/plane/shiv.jpg",
     "name": "Shiv",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Skybreen": {
-    "url": "../static/img/planes/2009/skybreen.jpg",
+  "skybreen": {
+    "id": "skybreen",
+    "url": "img/cards/2009/planechase-2009/plane/skybreen.jpg",
     "name": "Skybreen",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Sokenzan": {
-    "url": "../static/img/planes/2009/sokenzan.jpg",
+  "sokenzan": {
+    "id": "sokenzan",
+    "url": "img/cards/2009/planechase-2009/plane/sokenzan.jpg",
     "name": "Sokenzan",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Stronghold Furnace": {
-    "url": "../static/img/planes/2009/stronghold-furnace.jpg",
+  "stronghold-furnace": {
+    "id": "stronghold-furnace",
+    "url": "img/cards/2009/planechase-2009/plane/stronghold-furnace.jpg",
     "name": "Stronghold Furnace",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Tazeem Release Promo": {
-    "url": "../static/img/planes/2009/tazeem-release-promo.jpg",
-    "name": "Tazeem Release Promo",
-    "year": "2009",
-    "type": "plane"
-  },
-  "Tember City": {
-    "url": "../static/img/planes/2009/tember-city.jpg",
-    "name": "Tember City",
-    "year": "2009",
-    "type": "plane"
-  },
-  "The Aether Flues": {
-    "url": "../static/img/planes/2009/the-aether-flues.jpg",
+  "the-aether-flues": {
+    "id": "the-aether-flues",
+    "url": "img/cards/2009/planechase-2009/plane/the-aether-flues.jpg",
     "name": "The Aether Flues",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "The Dark Barony": {
-    "url": "../static/img/planes/2009/the-dark-barony.jpg",
+  "the-dark-barony": {
+    "id": "the-dark-barony",
+    "url": "img/cards/2009/planechase-2009/plane/the-dark-barony.jpg",
     "name": "The Dark Barony",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "The Eon Fog": {
-    "url": "../static/img/planes/2009/the-eon-fog.jpg",
+  "the-eon-fog": {
+    "id": "the-eon-fog",
+    "url": "img/cards/2009/planechase-2009/plane/the-eon-fog.jpg",
     "name": "The Eon Fog",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "The Fourth Sphere": {
-    "url": "../static/img/planes/2009/the-fourth-sphere.jpg",
+  "the-fourth-sphere": {
+    "id": "the-fourth-sphere",
+    "url": "img/cards/2009/planechase-2009/plane/the-fourth-sphere.jpg",
     "name": "The Fourth Sphere",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "The Great Forest": {
-    "url": "../static/img/planes/2009/the-great-forest.jpg",
+  "the-great-forest": {
+    "id": "the-great-forest",
+    "url": "img/cards/2009/planechase-2009/plane/the-great-forest.jpg",
     "name": "The Great Forest",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "The Hippodrome": {
-    "url": "../static/img/planes/2009/the-hippodrome.jpg",
+  "the-hippodrome": {
+    "id": "the-hippodrome",
+    "url": "img/cards/2009/planechase-2009/plane/the-hippodrome.jpg",
     "name": "The Hippodrome",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "The Maelstrom": {
-    "url": "../static/img/planes/2009/the-maelstrom.jpg",
+  "the-maelstrom": {
+    "id": "the-maelstrom",
+    "url": "img/cards/2009/planechase-2009/plane/the-maelstrom.jpg",
     "name": "The Maelstrom",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Turri Island": {
-    "url": "../static/img/planes/2009/turri-island.jpg",
+  "turri-island": {
+    "id": "turri-island",
+    "url": "img/cards/2009/planechase-2009/plane/turri-island.jpg",
     "name": "Turri Island",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Undercity Reaches": {
-    "url": "../static/img/planes/2009/undercity-reaches.jpg",
+  "undercity-reaches": {
+    "id": "undercity-reaches",
+    "url": "img/cards/2009/planechase-2009/plane/undercity-reaches.jpg",
     "name": "Undercity Reaches",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Velis Vel": {
-    "url": "../static/img/planes/2009/velis-vel.jpg",
+  "velis-vel": {
+    "id": "velis-vel",
+    "url": "img/cards/2009/planechase-2009/plane/velis-vel.jpg",
     "name": "Velis Vel",
     "year": "2009",
-    "type": "plane"
+    "set": "Planechase 2009",
+    "type": "Plane"
   },
-  "Akoum": {
-    "url": "../static/img/planes/2012/akoum.jpg",
-    "name": "Akoum",
-    "year": "2012",
-    "type": "plane"
+  "celestine-reef": {
+    "id": "celestine-reef",
+    "url": "img/cards/2009/planechase-promos/plane/celestine-reef.jpg",
+    "name": "Celestine Reef",
+    "year": "2009",
+    "set": "Planechase Promos",
+    "type": "Plane"
   },
-  "Aretopolis": {
-    "url": "../static/img/planes/2012/aretopolis.jpg",
-    "name": "Aretopolis",
-    "year": "2012",
-    "type": "plane"
+  "horizon-boughs": {
+    "id": "horizon-boughs",
+    "url": "img/cards/2009/planechase-promos/plane/horizon-boughs.jpg",
+    "name": "Horizon Boughs",
+    "year": "2009",
+    "set": "Planechase Promos",
+    "type": "Plane"
   },
-  "Astral Arena": {
-    "url": "../static/img/planes/2012/astral-arena.jpg",
-    "name": "Astral Arena",
-    "year": "2012",
-    "type": "plane"
+  "mirrored-depths": {
+    "id": "mirrored-depths",
+    "url": "img/cards/2009/planechase-promos/plane/mirrored-depths.jpg",
+    "name": "Mirrored Depths",
+    "year": "2009",
+    "set": "Planechase Promos",
+    "type": "Plane"
   },
-  "Bloodhill Bastion": {
-    "url": "../static/img/planes/2012/bloodhill-bastion.jpg",
-    "name": "Bloodhill Bastion",
-    "year": "2012",
-    "type": "plane"
+  "tazeem": {
+    "id": "tazeem",
+    "url": "img/cards/2009/planechase-promos/plane/tazeem.jpg",
+    "name": "Tazeem",
+    "year": "2009",
+    "set": "Planechase Promos",
+    "type": "Plane"
   },
-  "Edge Of Malacol": {
-    "url": "../static/img/planes/2012/edge-of-malacol.jpg",
-    "name": "Edge Of Malacol",
-    "year": "2012",
-    "type": "plane"
+  "tember-city": {
+    "id": "tember-city",
+    "url": "img/cards/2009/planechase-promos/plane/tember-city.jpg",
+    "name": "Tember City",
+    "year": "2009",
+    "set": "Planechase Promos",
+    "type": "Plane"
   },
-  "Furnace Layer": {
-    "url": "../static/img/planes/2012/furnace-layer.jpg",
-    "name": "Furnace Layer",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Gavony": {
-    "url": "../static/img/planes/2012/gavony.jpg",
-    "name": "Gavony",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Glen Elendra": {
-    "url": "../static/img/planes/2012/glen-elendra.jpg",
-    "name": "Glen Elendra",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Grand Ossuary": {
-    "url": "../static/img/planes/2012/grand-ossuary.jpg",
-    "name": "Grand Ossuary",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Grove Of The Dreampods": {
-    "url": "../static/img/planes/2012/grove-of-the-dreampods.jpg",
-    "name": "Grove Of The Dreampods",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Hedron Fields Of Agadeem": {
-    "url": "../static/img/planes/2012/hedron-fields-of-agadeem.jpg",
-    "name": "Hedron Fields Of Agadeem",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Jund": {
-    "url": "../static/img/planes/2012/jund.jpg",
-    "name": "Jund",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Kessig": {
-    "url": "../static/img/planes/2012/kessig.jpg",
-    "name": "Kessig",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Kharasha Foothills": {
-    "url": "../static/img/planes/2012/kharasha-foothills.jpg",
-    "name": "Kharasha Foothills",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Kilnspire District": {
-    "url": "../static/img/planes/2012/kilnspire-district.jpg",
-    "name": "Kilnspire District",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Lair Of The Ashen Idol": {
-    "url": "../static/img/planes/2012/lair-of-the-ashen-idol.jpg",
-    "name": "Lair Of The Ashen Idol",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Mount Keralia": {
-    "url": "../static/img/planes/2012/mount-keralia.jpg",
-    "name": "Mount Keralia",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Nephalia": {
-    "url": "../static/img/planes/2012/nephalia.jpg",
-    "name": "Nephalia",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Norns Dominion": {
-    "url": "../static/img/planes/2012/norns-dominion.jpg",
-    "name": "Norns Dominion",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Onakke Catacomb": {
-    "url": "../static/img/planes/2012/onakke-catacomb.jpg",
-    "name": "Onakke Catacomb",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Orochi Colony": {
-    "url": "../static/img/planes/2012/orochi-colony.jpg",
-    "name": "Orochi Colony",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Orzhova": {
-    "url": "../static/img/planes/2012/orzhova.jpg",
-    "name": "Orzhova",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Prahv": {
-    "url": "../static/img/planes/2012/prahv.jpg",
-    "name": "Prahv",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Quicksilver Sea": {
-    "url": "../static/img/planes/2012/quicksilver-sea.jpg",
-    "name": "Quicksilver Sea",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Selesnya Loft Gardens": {
-    "url": "../static/img/planes/2012/selesnya-loft-gardens.jpg",
-    "name": "Selesnya Loft Gardens",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Stairs To Infinity": {
-    "url": "../static/img/planes/2012/stairs-to-infinity.jpg",
-    "name": "Stairs To Infinity",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Stensia": {
-    "url": "../static/img/planes/2012/stensia.jpg",
-    "name": "Stensia",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Takenuma": {
-    "url": "../static/img/planes/2012/takenuma.jpg",
-    "name": "Takenuma",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Talon Gates": {
-    "url": "../static/img/planes/2012/talon-gates.jpg",
-    "name": "Talon Gates",
-    "year": "2012",
-    "type": "plane"
-  },
-  "The Zephyr Maze": {
-    "url": "../static/img/planes/2012/the-zephyr-maze.jpg",
-    "name": "The Zephyr Maze",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Trail Of The Mage Rings": {
-    "url": "../static/img/planes/2012/trail-of-the-mage-rings.jpg",
-    "name": "Trail Of The Mage Rings",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Truga Jungle": {
-    "url": "../static/img/planes/2012/truga-jungle.jpg",
-    "name": "Truga Jungle",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Windriddle Palaces": {
-    "url": "../static/img/planes/2012/windriddle-palaces.jpg",
-    "name": "Windriddle Palaces",
-    "year": "2012",
-    "type": "plane"
-  },
-  "Chaotic Aether": {
-    "url": "../static/img/phenomena/chaotic-aether.jpg",
+  "chaotic-aether": {
+    "id": "chaotic-aether",
+    "url": "img/cards/2012/planechase-2012/phenomenon/chaotic-aether.jpg",
     "name": "Chaotic Aether",
     "year": "2012",
-    "type": "phenomenon"
+    "set": "Planechase 2012",
+    "type": "Phenomenon"
   },
-  "Interplanar Tunnel": {
-    "url": "../static/img/phenomena/interplanar-tunnel.jpg",
+  "interplanar-tunnel": {
+    "id": "interplanar-tunnel",
+    "url": "img/cards/2012/planechase-2012/phenomenon/interplanar-tunnel.jpg",
     "name": "Interplanar Tunnel",
     "year": "2012",
-    "type": "phenomenon"
+    "set": "Planechase 2012",
+    "type": "Phenomenon"
   },
-  "Morphic Tide": {
-    "url": "../static/img/phenomena/morphic-tide.jpg",
+  "morphic-tide": {
+    "id": "morphic-tide",
+    "url": "img/cards/2012/planechase-2012/phenomenon/morphic-tide.jpg",
     "name": "Morphic Tide",
     "year": "2012",
-    "type": "phenomenon"
+    "set": "Planechase 2012",
+    "type": "Phenomenon"
   },
-  "Mutual Epiphany": {
-    "url": "../static/img/phenomena/mutual-epiphany.jpg",
+  "mutual-epiphany": {
+    "id": "mutual-epiphany",
+    "url": "img/cards/2012/planechase-2012/phenomenon/mutual-epiphany.jpg",
     "name": "Mutual Epiphany",
     "year": "2012",
-    "type": "phenomenon"
+    "set": "Planechase 2012",
+    "type": "Phenomenon"
   },
-  "Planewide Disaster": {
-    "url": "../static/img/phenomena/planewide-disaster.jpg",
+  "planewide-disaster": {
+    "id": "planewide-disaster",
+    "url": "img/cards/2012/planechase-2012/phenomenon/planewide-disaster.jpg",
     "name": "Planewide Disaster",
     "year": "2012",
-    "type": "phenomenon"
+    "set": "Planechase 2012",
+    "type": "Phenomenon"
   },
-  "Reality Shaping": {
-    "url": "../static/img/phenomena/reality-shaping.jpg",
+  "reality-shaping": {
+    "id": "reality-shaping",
+    "url": "img/cards/2012/planechase-2012/phenomenon/reality-shaping.jpg",
     "name": "Reality Shaping",
     "year": "2012",
-    "type": "phenomenon"
+    "set": "Planechase 2012",
+    "type": "Phenomenon"
   },
-  "Spatial Merging": {
-    "url": "../static/img/phenomena/spatial-merging.jpg",
+  "spatial-merging": {
+    "id": "spatial-merging",
+    "url": "img/cards/2012/planechase-2012/phenomenon/spatial-merging.jpg",
     "name": "Spatial Merging",
     "year": "2012",
-    "type": "phenomenon"
+    "set": "Planechase 2012",
+    "type": "Phenomenon"
   },
-  "Time Distortion": {
-    "url": "../static/img/phenomena/time-distortion.jpg",
+  "time-distortion": {
+    "id": "time-distortion",
+    "url": "img/cards/2012/planechase-2012/phenomenon/time-distortion.jpg",
     "name": "Time Distortion",
     "year": "2012",
-    "type": "phenomenon"
+    "set": "Planechase 2012",
+    "type": "Phenomenon"
+  },
+  "akoum": {
+    "id": "akoum",
+    "url": "img/cards/2012/planechase-2012/plane/akoum.jpg",
+    "name": "Akoum",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "aretopolis": {
+    "id": "aretopolis",
+    "url": "img/cards/2012/planechase-2012/plane/aretopolis.jpg",
+    "name": "Aretopolis",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "astral-arena": {
+    "id": "astral-arena",
+    "url": "img/cards/2012/planechase-2012/plane/astral-arena.jpg",
+    "name": "Astral Arena",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "bloodhill-bastion": {
+    "id": "bloodhill-bastion",
+    "url": "img/cards/2012/planechase-2012/plane/bloodhill-bastion.jpg",
+    "name": "Bloodhill Bastion",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "edge-of-malacol": {
+    "id": "edge-of-malacol",
+    "url": "img/cards/2012/planechase-2012/plane/edge-of-malacol.jpg",
+    "name": "Edge Of Malacol",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "furnace-layer": {
+    "id": "furnace-layer",
+    "url": "img/cards/2012/planechase-2012/plane/furnace-layer.jpg",
+    "name": "Furnace Layer",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "gavony": {
+    "id": "gavony",
+    "url": "img/cards/2012/planechase-2012/plane/gavony.jpg",
+    "name": "Gavony",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "glen-elendra": {
+    "id": "glen-elendra",
+    "url": "img/cards/2012/planechase-2012/plane/glen-elendra.jpg",
+    "name": "Glen Elendra",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "grand-ossuary": {
+    "id": "grand-ossuary",
+    "url": "img/cards/2012/planechase-2012/plane/grand-ossuary.jpg",
+    "name": "Grand Ossuary",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "grove-of-the-dreampods": {
+    "id": "grove-of-the-dreampods",
+    "url": "img/cards/2012/planechase-2012/plane/grove-of-the-dreampods.jpg",
+    "name": "Grove Of The Dreampods",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "hedron-fields-of-agadeem": {
+    "id": "hedron-fields-of-agadeem",
+    "url": "img/cards/2012/planechase-2012/plane/hedron-fields-of-agadeem.jpg",
+    "name": "Hedron Fields Of Agadeem",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "jund": {
+    "id": "jund",
+    "url": "img/cards/2012/planechase-2012/plane/jund.jpg",
+    "name": "Jund",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "kessig": {
+    "id": "kessig",
+    "url": "img/cards/2012/planechase-2012/plane/kessig.jpg",
+    "name": "Kessig",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "kharasha-foothills": {
+    "id": "kharasha-foothills",
+    "url": "img/cards/2012/planechase-2012/plane/kharasha-foothills.jpg",
+    "name": "Kharasha Foothills",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "kilnspire-district": {
+    "id": "kilnspire-district",
+    "url": "img/cards/2012/planechase-2012/plane/kilnspire-district.jpg",
+    "name": "Kilnspire District",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "lair-of-the-ashen-idol": {
+    "id": "lair-of-the-ashen-idol",
+    "url": "img/cards/2012/planechase-2012/plane/lair-of-the-ashen-idol.jpg",
+    "name": "Lair Of The Ashen Idol",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "mount-keralia": {
+    "id": "mount-keralia",
+    "url": "img/cards/2012/planechase-2012/plane/mount-keralia.jpg",
+    "name": "Mount Keralia",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "nephalia": {
+    "id": "nephalia",
+    "url": "img/cards/2012/planechase-2012/plane/nephalia.jpg",
+    "name": "Nephalia",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "norns-dominion": {
+    "id": "norns-dominion",
+    "url": "img/cards/2012/planechase-2012/plane/norns-dominion.jpg",
+    "name": "Norns Dominion",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "onakke-catacomb": {
+    "id": "onakke-catacomb",
+    "url": "img/cards/2012/planechase-2012/plane/onakke-catacomb.jpg",
+    "name": "Onakke Catacomb",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "orochi-colony": {
+    "id": "orochi-colony",
+    "url": "img/cards/2012/planechase-2012/plane/orochi-colony.jpg",
+    "name": "Orochi Colony",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "orzhova": {
+    "id": "orzhova",
+    "url": "img/cards/2012/planechase-2012/plane/orzhova.jpg",
+    "name": "Orzhova",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "prahv": {
+    "id": "prahv",
+    "url": "img/cards/2012/planechase-2012/plane/prahv.jpg",
+    "name": "Prahv",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "quicksilver-sea": {
+    "id": "quicksilver-sea",
+    "url": "img/cards/2012/planechase-2012/plane/quicksilver-sea.jpg",
+    "name": "Quicksilver Sea",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "selesnya-loft-gardens": {
+    "id": "selesnya-loft-gardens",
+    "url": "img/cards/2012/planechase-2012/plane/selesnya-loft-gardens.jpg",
+    "name": "Selesnya Loft Gardens",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "stairs-to-infinity": {
+    "id": "stairs-to-infinity",
+    "url": "img/cards/2012/planechase-2012/plane/stairs-to-infinity.jpg",
+    "name": "Stairs To Infinity",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "stensia": {
+    "id": "stensia",
+    "url": "img/cards/2012/planechase-2012/plane/stensia.jpg",
+    "name": "Stensia",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "takenuma": {
+    "id": "takenuma",
+    "url": "img/cards/2012/planechase-2012/plane/takenuma.jpg",
+    "name": "Takenuma",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "talon-gates": {
+    "id": "talon-gates",
+    "url": "img/cards/2012/planechase-2012/plane/talon-gates.jpg",
+    "name": "Talon Gates",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "the-zephyr-maze": {
+    "id": "the-zephyr-maze",
+    "url": "img/cards/2012/planechase-2012/plane/the-zephyr-maze.jpg",
+    "name": "The Zephyr Maze",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "trail-of-the-mage-rings": {
+    "id": "trail-of-the-mage-rings",
+    "url": "img/cards/2012/planechase-2012/plane/trail-of-the-mage-rings.jpg",
+    "name": "Trail Of The Mage Rings",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "truga-jungle": {
+    "id": "truga-jungle",
+    "url": "img/cards/2012/planechase-2012/plane/truga-jungle.jpg",
+    "name": "Truga Jungle",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
+  },
+  "windriddle-palaces": {
+    "id": "windriddle-palaces",
+    "url": "img/cards/2012/planechase-2012/plane/windriddle-palaces.jpg",
+    "name": "Windriddle Palaces",
+    "year": "2012",
+    "set": "Planechase 2012",
+    "type": "Plane"
   }
 }

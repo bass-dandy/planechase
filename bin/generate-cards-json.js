@@ -1,27 +1,37 @@
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
+const glob = require('glob');
 
-function getPathsInDirectory(dirname, callback) {
-	return new Promise((resolve, reject) => {
-		fs.readdir(path.join(__dirname, dirname), (err, files) => {
-			if (err) {
-				reject(err);
-			}
-			// One of the joys of OSX development
-			_.pull(files, '.DS_Store');
-
-			const paths = _.map(files, (file) => {
-				const staticPath = _.replace(dirname, 'public/', '/');
-				return staticPath + '/' + file;
-			});
-			resolve(paths);
-		});
-	});
+function getCardUrl(filepath) {
+	return path.relative(path.join(__dirname, '../static'), filepath);
 }
 
-function getCardName(url) {
-	return _.chain(url)
+function getCardYear(filepath) {
+	return _.chain(filepath)
+		.split('/')
+		.nth(-4)
+		.value();
+}
+
+function getCardSet(filepath) {
+	return _.chain(filepath)
+		.split('/')
+		.nth(-3)
+		.startCase()
+		.value();
+}
+
+function getCardType(filepath) {
+	return _.chain(filepath)
+		.split('/')
+		.nth(-2)
+		.startCase()
+		.value();
+}
+
+function getCardName(filepath) {
+	return _.chain(filepath)
 		.split('/')
 		.last()
 		.replace('.jpg', '')
@@ -29,53 +39,33 @@ function getCardName(url) {
 		.value();
 }
 
-let files2009;
-let files2012;
-let filesPhenomena;
+function getCardId(filepath) {
+	const cardName = getCardName(filepath);
+	return _.kebabCase(cardName);
+}
 
-getPathsInDirectory('../static/img/planes/2009')
-	.then((files) => {
-		files2009 = files;
-		return getPathsInDirectory('../static/img/planes/2012');
-	})
-	.then((files) => {
-		files2012 = files;
-		return getPathsInDirectory('../static/img/phenomena');
-	})
-	.then((files) => {
-		filesPhenomena = files;
-
+glob(path.join(__dirname, '../static/img/cards/**/*.jpg'), (err, files) => {
+	if (err) {
+		console.log(err); // eslint-disable-line no-console
+	} else {
 		const cards = {};
 
-		_.forEach(files2009, (filename) => {
-			cards[getCardName(filename)] = {
-				url: filename,
-				name: getCardName(filename),
-				year: '2009',
-				type: 'plane'
-			};
-		});
+		_.forEach(files, (filepath) => {
+			const id = getCardId(filepath);
 
-		_.forEach(files2012, (filename) => {
-			cards[getCardName(filename)] = {
-				url: filename,
-				name: getCardName(filename),
-				year: '2012',
-				type: 'plane'
-			};
-		});
-
-		_.forEach(filesPhenomena, (filename) => {
-			cards[getCardName(filename)] = {
-				url: filename,
-				name: getCardName(filename),
-				year: '2012',
-				type: 'phenomenon'
+			cards[id] = {
+				id,
+				url: getCardUrl(filepath),
+				name: getCardName(filepath),
+				year: getCardYear(filepath),
+				set: getCardSet(filepath),
+				type: getCardType(filepath)
 			};
 		});
 
 		fs.writeFileSync(
 			path.join(__dirname, '../src/cards.json'),
-			JSON.stringify(cards, null, 2) // 2 to pretty-print
+			JSON.stringify(cards, null, 2)
 		);
-	});
+	}
+});
