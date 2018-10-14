@@ -31,9 +31,6 @@ export default class DeckDashboard extends React.Component {
 					remove() {
 						self.removeDeck(id);
 					},
-					save() {
-						self.saveDeck(id);
-					},
 					shuffle() {
 						self.shuffleDeck(id);
 					}
@@ -43,9 +40,13 @@ export default class DeckDashboard extends React.Component {
 	}
 
 	removeDeck = (id) => {
-		this.setState({
-			decks: _.reject(this.state.decks, {id})
+		this.setState((prevState) => {
+			return {
+				decks: _.reject(prevState.decks, {id})
+			};
 		});
+
+		// save changes to localStorage
 		const savedDecksJSON = localStorage.getItem('savedDecks');
 		let savedDecks = {};
 
@@ -55,24 +56,40 @@ export default class DeckDashboard extends React.Component {
 		}
 	}
 
-	_updateDeck = (id, updateFn) => {
-		this.setState({
-			decks: _.map(this.state.decks, (deck) => {
-				let newDeck = deck;
-				if (id === deck.id) {
-					newDeck = _.clone(deck);
-					updateFn(newDeck);
-				}
-				return newDeck;
-			})
-		});
-
+	_updateDeck = (id, updateFn, callback = _.noop) => {
+		this.setState((prevState) => {
+			return {
+				decks: _.map(prevState.decks, (deck) => {
+					let newDeck = deck;
+					if (id === deck.id) {
+						newDeck = _.clone(deck);
+						updateFn(newDeck);
+					}
+					return newDeck;
+				})
+			};
+		}, callback);
 	}
 
 	editDeck = (id, change) => {
 		this._updateDeck(id, (deck) => {
 			deck.name = change.name || deck.name;
 			deck.cards = change.cards || deck.cards;
+		}, () => {
+			// save changes to localStorage
+			const savedDecksJSON = localStorage.getItem('savedDecks');
+			let savedDecks = {};
+
+			if (savedDecksJSON) {
+				savedDecks = JSON.parse(savedDecksJSON);
+			}
+
+			savedDecks[id] = _.pick(
+				_.find(this.state.decks, {id}),
+				['name', 'cards']
+			);
+
+			localStorage.setItem('savedDecks', JSON.stringify(savedDecks));
 		});
 	}
 
@@ -85,22 +102,6 @@ export default class DeckDashboard extends React.Component {
 		});
 	}
 
-	saveDeck = (id) => {
-		const savedDecksJSON = localStorage.getItem('savedDecks');
-		let savedDecks = {};
-
-		if (savedDecksJSON) {
-			savedDecks = JSON.parse(savedDecksJSON);
-		}
-
-		savedDecks[id] = _.pick(
-			_.find(this.state.decks, {id}),
-			['name', 'cards']
-		);
-
-		localStorage.setItem('savedDecks', JSON.stringify(savedDecks));
-	}
-
 	shuffleDeck = (id) => {
 		this._updateDeck(id, (deck) => {
 			deck.cards = _.shuffle(deck.cards);
@@ -108,14 +109,18 @@ export default class DeckDashboard extends React.Component {
 	}
 
 	pinCard = (card) => {
-		this.setState({
-			pinnedCards: _.unionBy(this.state.pinnedCards, [card], 'name')
+		this.setState((prevState) => {
+			return {
+				pinnedCards: _.unionBy(prevState.pinnedCards, [card], 'name')
+			};
 		});
 	}
 
 	unpinCard = (card) => {
-		this.setState({
-			pinnedCards: _.filter(this.state.pinnedCards, (pinnedCard) => pinnedCard.name !== card.name)
+		this.setState((prevState) => {
+			return {
+				pinnedCards: _.filter(prevState.pinnedCards, (pinnedCard) => pinnedCard.name !== card.name)
+			};
 		});
 	}
 

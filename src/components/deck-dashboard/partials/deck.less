@@ -10,29 +10,23 @@
 		white-space: nowrap;
 	}
 
+	.deck-container {
+		display: flex;
+
+		.card-button {
+			flex: 1;
+			width: auto;
+		}
+	}
+
 	.deck-actions {
 		display: inline-block;
-		position: relative;
-		height: 100px;
-		width: 30px;
+		padding-left: 3px;
 
 		.deck-action {
+			display: block;
 			padding: 3px;
-			position: absolute;
-			right: 0;
-
-			&:first-child {
-				top: 0;
-			}
-
-			&:nth-child(2) {
-				top: 50%;
-				transform: translateY(-50%);
-			}
-
-			&:last-child {
-				bottom: 0;
-			}
+			margin-bottom: 5px;
 		}
 	}
 }

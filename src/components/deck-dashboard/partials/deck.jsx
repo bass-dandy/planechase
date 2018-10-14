@@ -34,35 +34,29 @@ export default class Deck extends React.Component {
 				<div className="deck-name">
 					{deck.name || '[no name]'}
 				</div>
-				<CardButton
-					card={_.get(deck, 'cards[0]')}
-					onClick={() => this.props.setMainDeckId(deck.id)}
-				/>
-				<div className="deck-actions">
-					<Tooltip placement="right" title="Save">
-						<IconButton
-							className="deck-action"
-							onClick={deck.save}
-						>
-							<Icon fontSize="small">save</Icon>
-						</IconButton>
-					</Tooltip>
-					<Tooltip placement="right" title="Edit">
-						<IconButton
-							className="deck-action"
-							onClick={this.edit}
-						>
-							<Icon fontSize="small">edit</Icon>
-						</IconButton>
-					</Tooltip>
-					<Tooltip placement="right" title="Delete">
-						<IconButton
-							className="deck-action"
-							onClick={deck.remove}
-						>
-							<Icon fontSize="small">delete_forever</Icon>
-						</IconButton>
-					</Tooltip>
+				<div className="deck-container">
+					<CardButton
+						card={_.get(deck, 'cards[0]')}
+						onClick={() => this.props.setMainDeckId(deck.id)}
+					/>
+					<div className="deck-actions">
+						<Tooltip placement="right" title="Edit">
+							<IconButton
+								className="deck-action"
+								onClick={this.edit}
+							>
+								<Icon fontSize="small">edit</Icon>
+							</IconButton>
+						</Tooltip>
+						<Tooltip placement="right" title="Delete">
+							<IconButton
+								className="deck-action"
+								onClick={deck.remove}
+							>
+								<Icon fontSize="small">delete_forever</Icon>
+							</IconButton>
+						</Tooltip>
+					</div>
 				</div>
 				<EditDialog
 					open={this.state.showEditDialog}
