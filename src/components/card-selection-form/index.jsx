@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {List, ListSubheader, ListItem, ListItemText, Checkbox} from '@material-ui/core';
+import {List, ListSubheader, ListItem, ListItemText, Checkbox, RootRef} from '@material-ui/core';
 
 import Sort from './partials/sort';
 import CARDS from '../../cards.json';
@@ -65,6 +65,7 @@ export default class CardSelectionForm extends React.Component {
 
 	setSort = (e) => {
 		this.setState({sort: e.target.value});
+		this.list.scrollTop = 0;
 	}
 
 	render() {
@@ -82,32 +83,35 @@ export default class CardSelectionForm extends React.Component {
 					sortFields={SORT_FIELDS}
 					setSort={this.setSort}
 				/>
-				<List className="card-list">
-					{ _.map(sortedCards, (cards, sortField) => (
-						<li key={`section-${sortField}`}>
-							<ul className="card-sublist">
-								<ListSubheader className="card-sublist-header">
-									{_.startCase(sortField)}
-								</ListSubheader>
-								{ _.map(cards, (card) => (
-									<ListItem
-										key={card.id}
-										dense
-										button
-										onClick={() => this.onCheck(card.id)}
-									>
-										<Checkbox
-											checked={this.state.selectedCards[card.id]}
-											disableRipple
-											tabIndex={-1}
-										/>
-										<ListItemText primary={card.name}/>
-									</ListItem>
-								)) }
-							</ul>
-						</li>
-					)) }
-				</List>
+				<RootRef rootRef={(e) => { this.list = e; }}>
+					<List className="card-list">
+						{ _.map(sortedCards, (cards, sortField) => (
+							<li key={`section-${sortField}`}>
+								<ul className="card-sublist">
+									<ListSubheader className="card-sublist-header">
+										{_.startCase(sortField)}
+									</ListSubheader>
+									{ _.map(cards, (card) => (
+										<ListItem
+											key={card.id}
+											className="card-list-item"
+											dense
+											button
+											onClick={() => this.onCheck(card.id)}
+										>
+											<Checkbox
+												checked={this.state.selectedCards[card.id]}
+												disableRipple
+												tabIndex={-1}
+											/>
+											<ListItemText primary={card.name}/>
+										</ListItem>
+									)) }
+								</ul>
+							</li>
+						)) }
+					</List>
+				</RootRef>
 			</div>
 		);
 	}
