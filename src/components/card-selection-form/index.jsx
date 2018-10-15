@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {List, ListItem, ListItemText, Checkbox} from '@material-ui/core';
+import {List, ListSubheader, ListItem, ListItemText, Checkbox} from '@material-ui/core';
 
+import Sort from './partials/sort';
 import CARDS from '../../cards.json';
+
+const SORT_FIELDS = {
+	name: 'name',
+	year: 'year',
+	set: 'set',
+	type: 'type'
+};
 
 export default class CardSelectionForm extends React.Component {
 
@@ -26,7 +34,8 @@ export default class CardSelectionForm extends React.Component {
 		});
 
 		this.state = {
-			selectedCards
+			selectedCards,
+			sort: SORT_FIELDS.name
 		};
 	}
 
@@ -54,27 +63,52 @@ export default class CardSelectionForm extends React.Component {
 		});
 	}
 
+	setSort = (e) => {
+		this.setState({sort: e.target.value});
+	}
+
 	render() {
+		const sortedCards = this.state.sort === SORT_FIELDS.name ? {
+			name: _.sortBy(CARDS, 'name')
+		} : _.groupBy(
+			_.sortBy(CARDS, [this.state.sort, 'name']),
+			this.state.sort
+		);
+
 		return (
-			<List className="card-list">
-				{ _.map(this.state.selectedCards, (isChecked, cardId) => {
-					return (
-						<ListItem
-							key={cardId}
-							dense
-							button
-							onClick={() => this.onCheck(cardId)}
-						>
-							<Checkbox
-								checked={isChecked}
-								disableRipple
-								tabIndex={-1}
-							/>
-							<ListItemText primary={CARDS[cardId].name}/>
-						</ListItem>
-					);
-				}) }
-			</List>
+			<div className="card-selection-form">
+				<Sort
+					value={this.state.sort}
+					sortFields={SORT_FIELDS}
+					setSort={this.setSort}
+				/>
+				<List className="card-list">
+					{ _.map(sortedCards, (cards, sortField) => (
+						<li key={`section-${sortField}`}>
+							<ul className="card-sublist">
+								<ListSubheader className="card-sublist-header">
+									{_.startCase(sortField)}
+								</ListSubheader>
+								{ _.map(cards, (card) => (
+									<ListItem
+										key={card.id}
+										dense
+										button
+										onClick={() => this.onCheck(card.id)}
+									>
+										<Checkbox
+											checked={this.state.selectedCards[card.id]}
+											disableRipple
+											tabIndex={-1}
+										/>
+										<ListItemText primary={card.name}/>
+									</ListItem>
+								)) }
+							</ul>
+						</li>
+					)) }
+				</List>
+			</div>
 		);
 	}
 }
