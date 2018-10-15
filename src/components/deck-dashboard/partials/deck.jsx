@@ -20,10 +20,12 @@ export default class Deck extends React.Component {
 		showEditDialog: false
 	}
 
-	edit = () => {
-		this.setState({
-			showEditDialog: true
-		});
+	openEditDialog = () => {
+		this.setState({showEditDialog: true});
+	}
+
+	closeEditDialog = () => {
+		this.setState({showEditDialog: false});
 	}
 
 	render() {
@@ -43,7 +45,7 @@ export default class Deck extends React.Component {
 						<Tooltip placement="right" title="Edit">
 							<IconButton
 								className="deck-action"
-								onClick={this.edit}
+								onClick={this.openEditDialog}
 							>
 								<Icon fontSize="small">edit</Icon>
 							</IconButton>
@@ -60,7 +62,7 @@ export default class Deck extends React.Component {
 				</div>
 				<EditDialog
 					open={this.state.showEditDialog}
-					onClose={() => this.setState({ showEditDialog: false })}
+					onClose={this.closeEditDialog}
 					deck={deck}
 				/>
 			</div>

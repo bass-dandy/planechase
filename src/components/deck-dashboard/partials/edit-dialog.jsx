@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
-import TextField from '@material-ui/core/TextField';
+import {
+	Button,
+	Dialog,
+	DialogTitle,
+	DialogContent,
+	DialogActions
+} from '@material-ui/core';
 
-import CardList from '../../card-list';
-import CARDS from '../../../cards.json';
+import DeckNameForm from './deck-name-form';
+import CardSelectionForm from '../../card-selection-form';
 
 export default class EditDialog extends React.Component {
 
@@ -19,87 +20,31 @@ export default class EditDialog extends React.Component {
 		deck: PropTypes.object.isRequired
 	}
 
-	state = {
-		name: '',
-		selectedCards: {}
-	}
-
-	onEnter = () => {
-		const {selectedCards} = this.state;
-
-		// select cards previously added to deck
-		_.forEach(this.props.deck.cards, (card) => {
-			selectedCards[card.id] = true;
-		});
-
-		this.setState({selectedCards});
-	}
-
-	onClose = () => {
-		// uncheck all cards
-		this.setState({
-			selectedCards: _.mapValues(this.state.selectedCards, () => false)
-		});
-		this.props.onClose();
-	}
-
-	onCheck = (cardId) => {
-		this.setState({
-			selectedCards: _.set(
-				this.state.selectedCards,
-				cardId,
-				!this.state.selectedCards[cardId]
-			)
-		});
-	}
-
 	submit = () => {
-		this.props.deck.edit({
-			name: this.state.name,
-			cards: _.reduce(this.state.selectedCards, (acc, isChecked, cardId) => {
-				if (isChecked) {
-					acc.push(CARDS[cardId]);
-				}
-				return acc;
-			}, [])
-		});
-		this.onClose();
-	}
-
-	componentDidMount() {
-		this.setState({name: this.props.deck.name});
-
-		// convert card array into object of form {name: bool} where bool represents selection state
-		this.setState({
-			selectedCards: _.reduce(CARDS, (acc, card, cardId) => {
-				acc[cardId] = false;
-				return acc;
-			}, {})
-		});
+		this.deckNameForm.submit();
+		this.cardSelectionForm.submit();
+		this.props.onClose();
 	}
 
 	render() {
 		return (
 			<Dialog
 				open={this.props.open}
-				onClose={this.onClose}
-				onEnter={this.onEnter}
+				onClose={this.props.onClose}
 			>
 				<DialogTitle>Edit Deck</DialogTitle>
 				<DialogContent>
-					<TextField
-						className="edit-deck-name"
-						label="Deck Name"
-						value={this.state.name}
-						onChange={(e) => this.setState({ name: e.target.value })}
+					<DeckNameForm
+						ref={(e) => { this.deckNameForm = e; }}
+						deck={this.props.deck}
+					/>
+					<CardSelectionForm
+						ref={(e) => { this.cardSelectionForm = e; }}
+						deck={this.props.deck}
 					/>
 				</DialogContent>
-				<CardList
-					selectedCards={this.state.selectedCards}
-					onCheck={this.onCheck}
-				/>
 				<DialogActions>
-					<Button onClick={this.onClose}>
+					<Button onClick={this.props.onClose}>
 						Cancel
 					</Button>
 					<Button onClick={this.submit} color="primary">
