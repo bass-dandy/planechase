@@ -1,7 +1,5 @@
 import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
+import {Button, Tooltip} from '@material-ui/core';
 
 import ChaosIcon from '../../chaos-icon';
 import PlaneswalkIcon from '../../planeswalk-icon';
@@ -21,7 +19,7 @@ export default class PlanarDie extends React.Component {
 		if (this.state.roll === 0) {
 			face = <PlaneswalkIcon fontSize="small"/>;
 		} else if (this.state.roll === 5) {
-			face = <ChaosIcon fontSize="small"/>
+			face = <ChaosIcon fontSize="small"/>;
 		}
 
 		return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import {SvgIcon} from '@material-ui/core';
 
 export default function PlaneswalkIcon(props) {
 	return (

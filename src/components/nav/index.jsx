@@ -9,7 +9,8 @@ import PlanechaseIcon from '../planechase-icon';
 export default class Nav extends React.Component {
 
 	static propTypes = {
-		onResize: PropTypes.func
+		onResize: PropTypes.func,
+		children: PropTypes.node
 	}
 
 	componentDidMount() {
@@ -20,7 +21,7 @@ export default class Nav extends React.Component {
 			});
 			this.resizeObserver.observe(this.navContainer);
 		}
-	}	
+	}
 
 	render() {
 		return (

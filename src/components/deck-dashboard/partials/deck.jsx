@@ -2,18 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
+import {Icon, IconButton, Tooltip} from '@material-ui/core';
 
 import EditDialog from './edit-dialog';
 import CardButton from '../../card-button';
-import PlaneswalkIcon from '../../planeswalk-icon';
 
 export default class Deck extends React.Component {
 
 	static propTypes = {
-		deck: PropTypes.object.isRequired
+		deck: PropTypes.object.isRequired,
+		setMainDeckId: PropTypes.func.isRequired
 	}
 
 	state = {

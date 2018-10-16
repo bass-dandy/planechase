@@ -26,7 +26,7 @@ export default class CardSelectionForm extends React.Component {
 		const selectedCards = _.reduce(CARDS, (acc, card, cardId) => {
 			acc[cardId] = false;
 			return acc;
-		}, {})
+		}, {});
 
 		// select cards previously added to deck
 		_.forEach(props.deck.cards, (card) => {

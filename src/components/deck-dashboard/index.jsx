@@ -37,7 +37,7 @@ export default class DeckDashboard extends React.Component {
 						self.shuffleDeck(id);
 					}
 				}]
-			}
+			};
 		});
 	}
 
@@ -102,7 +102,7 @@ export default class DeckDashboard extends React.Component {
 			deck.cards = _.concat(
 				_.tail(deck.cards),
 				_.head(deck.cards)
-			)
+			);
 		});
 	}
 
