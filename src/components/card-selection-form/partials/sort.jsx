@@ -10,8 +10,8 @@ export default function Sort(props) {
 				Sort
 			</InputLabel>
 			<Select
-				value={props.value}
-				onChange={props.setSort}
+				value={props.sort}
+				onChange={(e) => props.setSort(e.target.value)}
 				inputProps={{
 					id: 'set-card-sort',
 					name: 'Sort'
@@ -33,7 +33,7 @@ export default function Sort(props) {
 }
 
 Sort.propTypes = {
-	value: PropTypes.string.isRequired,
 	sortFields: PropTypes.objectOf(PropTypes.string).isRequired,
+	sort: PropTypes.string.isRequired,
 	setSort: PropTypes.func.isRequired
 };

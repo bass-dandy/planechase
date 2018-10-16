@@ -4,6 +4,7 @@ import _ from 'lodash';
 import {List, ListSubheader, ListItem, ListItemText, Checkbox, RootRef} from '@material-ui/core';
 
 import Sort from './partials/sort';
+import Filter from './partials/filter';
 import CARDS from '../../cards.json';
 
 const SORT_FIELDS = {
@@ -35,7 +36,8 @@ export default class CardSelectionForm extends React.Component {
 
 		this.state = {
 			selectedCards,
-			sort: SORT_FIELDS.name
+			sort: SORT_FIELDS.name,
+			filters: {}
 		};
 	}
 
@@ -63,26 +65,38 @@ export default class CardSelectionForm extends React.Component {
 		});
 	}
 
-	setSort = (e) => {
-		this.setState({sort: e.target.value});
+	setSort = (sort) => {
+		this.setState({sort});
+		this.list.scrollTop = 0;
+	}
+
+	setFilter = (filter, values) => {
+		this.setState({
+			filters: {
+				...this.state.filters,
+				[filter]: values
+			}
+		});
 		this.list.scrollTop = 0;
 	}
 
 	render() {
+		const filteredCards = _.filter(CARDS, (card) => {
+			return _.every(this.state.filters, (filterValue, filterKey) => {
+				return _.includes(filterValue, card[filterKey]) || _.size(filterValue) === 0;
+			});
+		});
+
 		const sortedCards = this.state.sort === SORT_FIELDS.name ? {
-			name: _.sortBy(CARDS, 'name')
+			name: _.sortBy(filteredCards, SORT_FIELDS.name)
 		} : _.groupBy(
-			_.sortBy(CARDS, [this.state.sort, 'name']),
+			_.sortBy(filteredCards, [this.state.sort, SORT_FIELDS.name]),
 			this.state.sort
 		);
 
 		return (
 			<div className="card-selection-form">
-				<Sort
-					value={this.state.sort}
-					sortFields={SORT_FIELDS}
-					setSort={this.setSort}
-				/>
+				{ _.size(filteredCards) > 0 ? (
 				<RootRef rootRef={(e) => { this.list = e; }}>
 					<List className="card-list">
 						{ _.map(sortedCards, (cards, sortField) => (
@@ -112,6 +126,18 @@ export default class CardSelectionForm extends React.Component {
 						)) }
 					</List>
 				</RootRef>
+				) : 'No cards match the selected filters :^(' }
+				<div className="filter-list">
+					<Sort
+						sortFields={SORT_FIELDS}
+						sort={this.state.sort}
+						setSort={this.setSort}
+					/>
+					<Filter
+						filters={this.state.filters}
+						setFilter={this.setFilter}
+					/>
+				</div>
 			</div>
 		);
 	}
