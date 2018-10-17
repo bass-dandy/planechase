@@ -1,22 +1,20 @@
 .card-selection-form {
-	padding-top: 20px;
 
 	.filter-list {
-		display: inline-flex;
-		flex-direction: column;
-		vertical-align: top;
-		margin-left: 25px;
+		display: flex;
+		margin: 10px 0;
 
 		.card-filter {
-			width: 200px;
-			margin-top: 10px;
+			flex: 1;
+			margin-left: 10px;
 		}
 	}
 
 	.card-list {
 		display: inline-block;
-		max-height: 300px;
+		height: 300px;
 		padding: 0;
+		margin-right: 10px;
 		overflow: auto;
 
 		.card-sublist {
@@ -34,5 +32,9 @@
 		.card-list-item {
 			padding: 0;
 		}
+	}
+
+	.card-preview {
+		height: 300px;
 	}
 }

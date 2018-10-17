@@ -31,6 +31,7 @@ export default class EditDialog extends React.Component {
 			<Dialog
 				open={this.props.open}
 				onClose={this.props.onClose}
+				maxWidth="md"
 			>
 				<DialogTitle>Edit Deck</DialogTitle>
 				<DialogContent>

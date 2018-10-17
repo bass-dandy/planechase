@@ -9,20 +9,16 @@ import CARDS from '../../../cards.json';
 const FILTER_KEYS = ['year', 'set', 'type'];
 
 // the values we want to be able to filter for (by card key)
-const FILTER_VALUES_FOR_KEY = {
-	year: [],
-	set: [],
-	type: []
-};
+const FILTER_VALUES_FOR_KEY = {};
 
 // populate the filter values
-_.forEach(CARDS, (card) => {
-	_.forEach(FILTER_KEYS, (filterKey) => {
+_.forEach(FILTER_KEYS, (filterKey) => {
+	FILTER_VALUES_FOR_KEY[filterKey] = [];
+
+	_.forEach(CARDS, (card) => {
 		FILTER_VALUES_FOR_KEY[filterKey].push(card[filterKey]);
 	});
-});
 
-_.forEach(FILTER_KEYS, (filterKey) => {
 	FILTER_VALUES_FOR_KEY[filterKey] = _.uniq(FILTER_VALUES_FOR_KEY[filterKey]);
 });
 

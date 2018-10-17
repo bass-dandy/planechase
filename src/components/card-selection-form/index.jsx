@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {List, ListSubheader, ListItem, ListItemText, Checkbox, RootRef} from '@material-ui/core';
 
+import CardList from './partials/card-list';
 import Sort from './partials/sort';
 import Filter from './partials/filter';
 import CARDS from '../../cards.json';
 
-const SORT_FIELDS = {
+const SORT_KEYS = {
 	name: 'name',
 	year: 'year',
 	set: 'set',
@@ -36,8 +36,9 @@ export default class CardSelectionForm extends React.Component {
 
 		this.state = {
 			selectedCards,
-			sort: SORT_FIELDS.name,
-			filters: {}
+			sort: SORT_KEYS.name,
+			filters: {},
+			previewCard: null
 		};
 	}
 
@@ -53,21 +54,24 @@ export default class CardSelectionForm extends React.Component {
 		});
 	}
 
-	onCheck = (cardId) => {
+	onSelectCard = (cardId) => {
 		this.setState((prevState) => {
 			return {
-				selectedCards: _.set(
-					prevState.selectedCards,
-					cardId,
-					!prevState.selectedCards[cardId]
-				)
+				selectedCards: {
+					...prevState.selectedCards,
+					[cardId]: !prevState.selectedCards[cardId]
+				}
 			};
 		});
 	}
 
+	onCardHover = (card) => {
+		this.setState({previewCard: card});
+	}
+
 	setSort = (sort) => {
 		this.setState({sort});
-		this.list.scrollTop = 0;
+		this.list.resetScroll();
 	}
 
 	setFilter = (filter, values) => {
@@ -77,59 +81,45 @@ export default class CardSelectionForm extends React.Component {
 				[filter]: values
 			}
 		});
-		this.list.scrollTop = 0;
+		this.list.resetScroll();
 	}
 
-	render() {
-		const filteredCards = _.filter(CARDS, (card) => {
+	filterCards(cards) {
+		return _.filter(cards, (card) => {
+			// only return cards that match every applied filter
 			return _.every(this.state.filters, (filterValue, filterKey) => {
 				return _.includes(filterValue, card[filterKey]) || _.size(filterValue) === 0;
 			});
 		});
+	}
 
-		const sortedCards = this.state.sort === SORT_FIELDS.name ? {
-			name: _.sortBy(filteredCards, SORT_FIELDS.name)
-		} : _.groupBy(
-			_.sortBy(filteredCards, [this.state.sort, SORT_FIELDS.name]),
-			this.state.sort
-		);
+	sortCards(cards) {
+		const sortNameFn = (card) => {
+			return card.name.startsWith('The') ? card.name.substring(4) : card.name;
+		};
+
+		if (this.state.sort === SORT_KEYS.name) {
+			// If we group by name, there will be one group per name which is plain silly.
+			// Handle this special case by just manually making one group called 'name'
+			return { name: _.sortBy(cards, sortNameFn) };
+		} else {
+			return _.groupBy(
+				// the sorted groups should internally be sorted by name
+				_.sortBy(cards, [this.state.sort, sortNameFn]),
+				this.state.sort
+			);
+		}
+	}
+
+	render() {
+		const filteredCards = this.filterCards(CARDS);
+		const sortedCards = this.sortCards(filteredCards);
 
 		return (
 			<div className="card-selection-form">
-				{ _.size(filteredCards) > 0 ? (
-				<RootRef rootRef={(e) => { this.list = e; }}>
-					<List className="card-list">
-						{ _.map(sortedCards, (cards, sortField) => (
-							<li key={`section-${sortField}`}>
-								<ul className="card-sublist">
-									<ListSubheader className="card-sublist-header">
-										{_.startCase(sortField)}
-									</ListSubheader>
-									{ _.map(cards, (card) => (
-										<ListItem
-											key={card.id}
-											className="card-list-item"
-											dense
-											button
-											onClick={() => this.onCheck(card.id)}
-										>
-											<Checkbox
-												checked={this.state.selectedCards[card.id]}
-												disableRipple
-												tabIndex={-1}
-											/>
-											<ListItemText primary={card.name}/>
-										</ListItem>
-									)) }
-								</ul>
-							</li>
-						)) }
-					</List>
-				</RootRef>
-				) : 'No cards match the selected filters :^(' }
 				<div className="filter-list">
 					<Sort
-						sortFields={SORT_FIELDS}
+						sortKeys={SORT_KEYS}
 						sort={this.state.sort}
 						setSort={this.setSort}
 					/>
@@ -138,6 +128,17 @@ export default class CardSelectionForm extends React.Component {
 						setFilter={this.setFilter}
 					/>
 				</div>
+				<CardList
+					ref={(e) => { this.list = e; }}
+					cardsByGroup={sortedCards}
+					selectedCards={this.state.selectedCards}
+					onSelectCard={this.onSelectCard}
+					onCardHover={this.onCardHover}
+				/>
+				<img
+					className="card-preview"
+					src={`${this.state.previewCard ? this.state.previewCard.url : 'img/card-back.jpg'}`}
+				/>
 			</div>
 		);
 	}

@@ -17,7 +17,7 @@ export default function Sort(props) {
 					name: 'Sort'
 				}}
 			>
-			{ _.map(props.sortFields, (sortField) => {
+			{ _.map(props.sortKeys, (sortField) => {
 				return (
 					<MenuItem
 						key={sortField}
@@ -33,7 +33,7 @@ export default function Sort(props) {
 }
 
 Sort.propTypes = {
-	sortFields: PropTypes.objectOf(PropTypes.string).isRequired,
+	sortKeys: PropTypes.objectOf(PropTypes.string).isRequired,
 	sort: PropTypes.string.isRequired,
 	setSort: PropTypes.func.isRequired
 };
