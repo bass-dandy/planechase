@@ -16,7 +16,7 @@ export default function MainDeck(props) {
 				<IconButton
 					className="deck-actions"
 					onClick={_.get(props, 'deck.planeswalk')}
-					disabled={!props.deck || props.deck.cards.length === 0}
+					disabled={!props.deck || props.deck.cards.length <= 1}
 				>
 					<PlaneswalkIcon/>
 				</IconButton>
@@ -25,7 +25,7 @@ export default function MainDeck(props) {
 				<IconButton
 					className="deck-actions"
 					onClick={_.get(props, 'deck.shuffle')}
-					disabled={!props.deck || props.deck.cards.length === 0}
+					disabled={!props.deck || props.deck.cards.length <= 1}
 				>
 					<Icon>shuffle</Icon>
 				</IconButton>
