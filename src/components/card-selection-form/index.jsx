@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import produce from 'immer';
 
 import CardList from './partials/card-list';
 import Sort from './partials/sort';
@@ -83,13 +84,10 @@ export default class CardSelectionForm extends React.Component {
 	}
 
 	onSelectCard = (cardId) => {
-		this.setState((prevState) => {
-			return {
-				selectedCards: {
-					...prevState.selectedCards,
-					[cardId]: !prevState.selectedCards[cardId]
-				}
-			};
+		this.setState({
+			selectedCards: produce(this.state.selectedCards, (draft) => {
+				draft[cardId] = !draft[cardId];
+			})
 		});
 	}
 
@@ -110,10 +108,9 @@ export default class CardSelectionForm extends React.Component {
 	}
 
 	setFilter = (filter, values) => {
-		const filters = {
-			...this.state.filters,
-			[filter]: values
-		};
+		const filters = produce(this.state.filters, (draft) => {
+			draft[filter] = values;
+		});
 
 		this.setState({
 			filters,
