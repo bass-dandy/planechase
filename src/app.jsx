@@ -9,14 +9,13 @@ import Nav from './components/nav';
 export default class App extends React.Component {
 
 	state = {
-		navHeight: 0,
 		tab: 0
 	}
 
 	render() {
 		return (
-			<>
-				<Nav onResize={(height) => this.setState({navHeight: height})}>
+			<div className="main">
+				<Nav>
 					<Tabs
 						value={this.state.tab}
 						onChange={(e, value) => this.setState({tab: value})}
@@ -25,19 +24,11 @@ export default class App extends React.Component {
 						<Tab label="Eternities Map"/>
 					</Tabs>
 				</Nav>
-				<div
-					style={{
-						position: 'absolute',
-						top: this.state.navHeight,
-						left: 0,
-						right: 0,
-						bottom: 0
-					}}
-				>
+				<div className="tab-content">
 					{ this.state.tab === 0 && <DeckDashboard/> }
 					{ this.state.tab === 1 && <EternitiesMap/> }
 				</div>
-			</>
+			</div>
 		);
 	}
 }
