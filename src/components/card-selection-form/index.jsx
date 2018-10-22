@@ -73,14 +73,14 @@ export default class CardSelectionForm extends React.Component {
 
 	// public method for submitting this form through some other form
 	submit = () => {
-		this.props.deck.edit({
-			cards: _.reduce(this.state.selectedCards, (acc, isChecked, cardId) => {
+		this.props.deck.setCards(
+			_.reduce(this.state.selectedCards, (acc, isChecked, cardId) => {
 				if (isChecked) {
 					acc.push(CARDS[cardId]);
 				}
 				return acc;
 			}, [])
-		});
+		);
 	}
 
 	onSelectCard = (cardId) => {

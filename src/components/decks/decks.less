@@ -1,14 +1,16 @@
 .decks {
-	position: absolute;
+	@import "./partials/deck";
+	@import "./partials/edit-dialog";
+
 	display: flex;
 	flex-direction: column;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	width: 210px;
+	height: 100vh;
+	width: @sidebar-width;
 	background-color: white;
-	box-shadow: 0 6px 5px 1px rgba(0, 0, 0, 0.2);
-	z-index: 500;
+
+	.decks-sidebar-control {
+		text-align: right;
+	}
 
 	.decks-title {
 		position: relative;

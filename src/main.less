@@ -1,8 +1,11 @@
+@sidebar-width: 210px;
+
 @import "./components/card-button/card-button";
 @import "./components/card-selection-form/card-selection-form";
-@import "./components/deck-dashboard/deck-dashboard";
+@import "./components/decks/decks";
 @import "./components/eternities-map/eternities-map";
 @import "./components/nav/nav";
+@import "./components/vanilla/vanilla";
 
 html body {
 	padding: 0;
@@ -15,6 +18,12 @@ html body {
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
+	margin-left: 0;
+	transition: margin-left 225ms cubic-bezier(0, 0, 0.2, 1);
+
+	&.sidebar-open {
+		margin-left: @sidebar-width;
+	}
 
 	.tab-content {
 		flex: 1;

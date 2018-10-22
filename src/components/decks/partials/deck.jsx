@@ -10,8 +10,7 @@ import CardButton from '../../card-button';
 export default class Deck extends React.Component {
 
 	static propTypes = {
-		deck: PropTypes.object.isRequired,
-		setMainDeckId: PropTypes.func.isRequired
+		deck: PropTypes.object.isRequired
 	}
 
 	state = {
@@ -37,7 +36,7 @@ export default class Deck extends React.Component {
 				<div className="deck-container">
 					<CardButton
 						card={_.get(deck, 'cards[0]')}
-						onClick={() => this.props.setMainDeckId(deck.id)}
+						onClick={deck.select}
 					/>
 					<div className="deck-actions">
 						<Tooltip placement="right" title="Edit">

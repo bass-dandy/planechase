@@ -12,9 +12,7 @@ export default class DeckNameForm extends React.Component {
 
 	// public method for submitting this form through some other form
 	submit = () => {
-		this.props.deck.edit({
-			name: this.state.name
-		});
+		this.props.deck.setName(this.state.name);
 	}
 
 	render() {

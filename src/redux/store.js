@@ -1,7 +1,7 @@
-import {applyMiddleware, createStore, compose} from 'redux';
+import {applyMiddleware, createStore, compose, combineReducers} from 'redux';
 import {createLogger} from 'redux-logger';
 
-//import reducers from './modules/reducers';
+import decks from './ducks/decks';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -10,11 +10,14 @@ const logger = createLogger({
 	timestamp: false
 });
 
+const reducer = combineReducers({
+	decks
+});
+
 const initialState = {};
 
 export default createStore(
-//	reducers,
-	() => {},
+	reducer,
 	initialState,
 	composeEnhancers(applyMiddleware(logger))
 );

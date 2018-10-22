@@ -3,16 +3,21 @@ import PropTypes from 'prop-types';
 
 import {Icon, IconButton} from '@material-ui/core';
 
-import Deck from './deck';
+import Deck from './partials/deck';
 
 export default function Decks(props) {
 	return (
 		<div className="decks">
+			<div className="decks-sidebar-control">
+				<IconButton onClick={props.toggle}>
+					<Icon>keyboard_arrow_left</Icon>
+				</IconButton>
+			</div>
 			<div className="decks-title">
 				Planar Decks
 				<IconButton
 					className="add-deck"
-					onClick={() => props.addDeck() /* addDeck accepts args, so avoid passing it the syntheticEvent */}
+					onClick={props.addDeck}
 				>
 					<Icon>add_circle</Icon>
 				</IconButton>
@@ -23,7 +28,6 @@ export default function Decks(props) {
 						<Deck
 							key={deck.id}
 							deck={deck}
-							setMainDeckId={props.setMainDeckId}
 						/>
 					);
 				}) }
@@ -35,5 +39,5 @@ export default function Decks(props) {
 Decks.propTypes = {
 	decks: PropTypes.arrayOf(PropTypes.object).isRequired,
 	addDeck: PropTypes.func.isRequired,
-	setMainDeckId: PropTypes.func.isRequired
+	toggle: PropTypes.func.isRequired
 };
