@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {Select, MenuItem, InputLabel, FormControl} from '@material-ui/core';
+import {Select, MenuItem, InputLabel, FormControl, Icon} from '@material-ui/core';
 
 import CARDS from '../../../cards.json';
 
@@ -39,6 +39,9 @@ export default function Filter(props) {
 					id: `set-card-filter-${filterKey}`,
 					name: filterKey
 				}}
+				IconComponent={(props) => (
+					<Icon fontSize="inherit" className="filter-dropdown-arrow">filter_list</Icon>
+				)}
 			>
 			{ _.map(FILTER_VALUES_FOR_KEY[filterKey], (filterValue) => (
 				<MenuItem
