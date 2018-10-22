@@ -13,6 +13,7 @@ export default function Pinboard(props) {
 						key={card.name}
 						card={card}
 						onClick={() => props.unpinCard(card)}
+						label="Return to Deck"
 					/>
 				);
 			}) }

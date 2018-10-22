@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {IconButton, Icon} from '@material-ui/core';
 
 import PlanarDie from './partials/planar-die';
-import PlanechaseIcon from '../planechase-icon';
 
 export default function Nav(props) {
 	return (

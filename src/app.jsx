@@ -26,7 +26,13 @@ class App extends React.Component {
 				>
 					<Decks/>
 				</Drawer>
-				<div className={classnames('main', {'sidebar-open': this.props.sidebarOpen})}>
+				<div
+					className={
+						classnames('main', {
+							'sidebar-open': this.props.sidebarOpen
+						})
+					}
+				>
 					<Nav
 						toggleSidebar={this.props.toggleSidebar}
 						sidebarOpen={this.props.sidebarOpen}

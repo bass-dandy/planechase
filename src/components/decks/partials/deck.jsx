@@ -37,6 +37,7 @@ export default class Deck extends React.Component {
 					<CardButton
 						card={_.get(deck, 'cards[0]')}
 						onClick={deck.select}
+						label="Use This Deck"
 					/>
 					<div className="deck-actions">
 						<Tooltip placement="right" title="Edit">
