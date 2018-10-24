@@ -16,10 +16,11 @@ export default class Vanilla extends React.Component {
 		super(props);
 
 		this.state = {
-			pinnedCards: [],
 			deckCards: _.clone(
 				_.get(props, 'deck.cards', [])
-			)
+			),
+			pinnedCards: [],
+			hoveredPinnedCard: null
 		};
 	}
 
@@ -56,6 +57,10 @@ export default class Vanilla extends React.Component {
 		);
 	}
 
+	setHoveredPinnedCard = (card) => {
+		this.setState({hoveredPinnedCard: card});
+	}
+
 	render() {
 		return (
 			<>
@@ -64,10 +69,12 @@ export default class Vanilla extends React.Component {
 					planeswalk={this.planeswalk}
 					shuffle={this.shuffle}
 					pinCard={this.pinCard}
+					topCardOverride={this.state.hoveredPinnedCard}
 				/>
 				<Pinboard
 					cards={this.state.pinnedCards}
 					unpinCard={this.unpinCard}
+					setHoveredPinnedCard={this.setHoveredPinnedCard}
 				/>
 			</>
 		);

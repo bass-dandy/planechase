@@ -14,6 +14,8 @@ export default function Pinboard(props) {
 						card={card}
 						onClick={() => props.unpinCard(card)}
 						label="Return to Deck"
+						onMouseEnter={() => props.setHoveredPinnedCard(card)}
+						onMouseLeave={() => props.setHoveredPinnedCard(null)}
 					/>
 				);
 			}) }
@@ -23,5 +25,6 @@ export default function Pinboard(props) {
 
 Pinboard.propTypes = {
 	cards: PropTypes.array.isRequired,
-	unpinCard: PropTypes.func.isRequired
+	unpinCard: PropTypes.func.isRequired,
+	setHoveredPinnedCard: PropTypes.func.isRequired
 };

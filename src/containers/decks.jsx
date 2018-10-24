@@ -27,6 +27,7 @@ function DecksContainer(props) {
 	return (
 		<Decks
 			decks={decks}
+			selectedDeck={props.selectedDeck}
 			addDeck={props.addDeck}
 			toggle={props.toggle}
 		/>
@@ -35,7 +36,8 @@ function DecksContainer(props) {
 
 function mapStateToProps(state) {
 	return {
-		decks: state.decks.decks
+		decks: state.decks.decks,
+		selectedDeck: state.decks.selectedDeck
 	};
 }
 

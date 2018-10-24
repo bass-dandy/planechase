@@ -28,6 +28,7 @@ export default function Decks(props) {
 						<Deck
 							key={deck.id}
 							deck={deck}
+							selectedDeck={props.selectedDeck}
 						/>
 					);
 				}) }
@@ -38,6 +39,7 @@ export default function Decks(props) {
 
 Decks.propTypes = {
 	decks: PropTypes.arrayOf(PropTypes.object).isRequired,
+	selectedDeck: PropTypes.object,
 	addDeck: PropTypes.func.isRequired,
 	toggle: PropTypes.func.isRequired
 };

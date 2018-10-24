@@ -9,10 +9,14 @@ import PlaneswalkIcon from '../../planeswalk-icon';
 export default function MainDeck(props) {
 	const disabled = !props.cards || props.cards.length <= 1;
 
+	const topCardUrl = props.topCardOverride
+		? props.topCardOverride.url
+		: _.get(props, 'cards[0].url', '../static/img/card-back.jpg');
+
 	return (
 		<div className="main-deck">
 			<div className="card-container">
-				<img src={_.get(props, 'cards[0].url', '../static/img/card-back.jpg')}/>
+				<img src={topCardUrl}/>
 			</div>
 			<Tooltip placement="bottom" title="Planeswalk">
 				<IconButton
@@ -49,5 +53,6 @@ MainDeck.propTypes = {
 	cards: PropTypes.arrayOf(PropTypes.object),
 	planeswalk: PropTypes.func.isRequired,
 	shuffle: PropTypes.func.isRequired,
-	pinCard: PropTypes.func.isRequired
+	pinCard: PropTypes.func.isRequired,
+	topCardOverride: PropTypes.object
 };

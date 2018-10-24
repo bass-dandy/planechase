@@ -1,19 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import classnames from 'classnames';
 
 export default function CardButton(props) {
+	const {
+		card,
+		className,
+		label,
+		onClick,
+		...passthroughProps
+	} = props;
+
 	return (
-		<button className="card-button">
+		<button
+			className={classnames('card-button', className || '')}
+			{...passthroughProps}
+		>
 			<img
-				src={_.get(props, 'card.url', '../static/img/card-back.jpg')}
-				alt={_.get(props, 'card.name', 'No card to display')}
-				onClick={props.onClick}
+				src={_.get(card, 'url', '../static/img/card-back.jpg')}
+				alt={_.get(card, 'name', 'No card to display')}
+				onClick={onClick}
 			/>
-			{ props.label ? (
+			{ label ? (
 				<div className="card-button-label">
 					<div className="center-vertical">
-						{props.label}
+						{label}
 					</div>
 				</div>
 			) : null }
@@ -26,6 +38,7 @@ CardButton.propTypes = {
 		name: PropTypes.string,
 		url: PropTypes.string
 	}),
-	onClick: PropTypes.func.isRequired,
-	label: PropTypes.string
+	className: PropTypes.string,
+	label: PropTypes.string,
+	onClick: PropTypes.func.isRequired
 };

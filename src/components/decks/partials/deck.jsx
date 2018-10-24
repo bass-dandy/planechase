@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import classnames from 'classnames';
 
 import {Icon, IconButton, Tooltip} from '@material-ui/core';
 
@@ -10,7 +11,8 @@ import CardButton from '../../card-button';
 export default class Deck extends React.Component {
 
 	static propTypes = {
-		deck: PropTypes.object.isRequired
+		deck: PropTypes.object.isRequired,
+		selectedDeck: PropTypes.object
 	}
 
 	state = {
@@ -26,7 +28,8 @@ export default class Deck extends React.Component {
 	}
 
 	render() {
-		const {deck} = this.props;
+		const {deck, selectedDeck} = this.props;
+		const selected = !_.isNil(selectedDeck) && _.get(selectedDeck, 'id') === deck.id;
 
 		return (
 			<div className="deck">
@@ -35,6 +38,7 @@ export default class Deck extends React.Component {
 				</div>
 				<div className="deck-container">
 					<CardButton
+						className={classnames({selected})}
 						card={_.get(deck, 'cards[0]')}
 						onClick={deck.select}
 						label="Use This Deck"
