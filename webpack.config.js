@@ -52,13 +52,13 @@ const config = {
 
 module.exports = function(env, options) {
 	if (options.mode === 'production') {
-		config.plugins.push([
+		config.plugins.push(
 			new BundleAnalyzerPlugin({
 				reportFilename: '../bundle-report.html',
 				analyzerMode: 'static',
 				openAnalyzer: false
 			})
-		]);
+		);
 	}
 	return config;
 };
