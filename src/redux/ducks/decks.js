@@ -95,6 +95,11 @@ export default function reducer(state = DEFAULT_STATE, {type, payload}) {
 				const id = payload;
 				_.remove(draft.decks, (deck) => deck.id === id);
 				saveDecks(draft.decks);
+
+				// if we just deleted the selected deck, deselect it
+				if (_.get(state, 'selectedDeck.id') === id) {
+					draft.selectedDeck = null;
+				}
 				break;
 			}
 			case types.SET_DECK_NAME: {
@@ -107,11 +112,6 @@ export default function reducer(state = DEFAULT_STATE, {type, payload}) {
 				const deck = _.find(draft.decks, {id: payload.id});
 				_.set(deck, 'cards', payload.cards);
 				saveDecks(draft.decks);
-
-				// if we just edited the selected deck, deselect it
-				if (state.selectedDeck && state.selectedDeck.id === deck.id) {
-					draft.selectedDeck = null;
-				}
 				break;
 			}
 			case types.SELECT_DECK: {

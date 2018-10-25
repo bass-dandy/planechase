@@ -12,7 +12,10 @@ export default function Pinboard(props) {
 					<CardButton
 						key={card.name}
 						card={card}
-						onClick={() => props.unpinCard(card)}
+						onClick={() => {
+							props.unpinCard(card);
+							props.setHoveredPinnedCard(null);
+						}}
 						label="Return to Deck"
 						onMouseEnter={() => props.setHoveredPinnedCard(card)}
 						onMouseLeave={() => props.setHoveredPinnedCard(null)}
