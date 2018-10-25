@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Christian Dinh">
+		<meta name="description" content="For chasing planes">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Planechase</title>
 
-	<title>Planechase</title>
+		<link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
+		<link rel="shortcut icon" href="<%= htmlWebpackPlugin.files.favicon %>">
 
-	<link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
-	<link rel="shortcut icon" href="<%= htmlWebpackPlugin.files.favicon %>">
-
-	<!-- fonts -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-</head>
-
-<body>
-	<div id="root"></div>
-	<script src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
-</body>
-
+		<!-- fonts -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+	</head>
+	<body>
+		<div id="root"></div>
+		<script src="<%= htmlWebpackPlugin.files.js %>"></script>
+	</body>
 </html>
