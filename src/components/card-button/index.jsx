@@ -18,7 +18,7 @@ export default function CardButton(props) {
 			{...passthroughProps}
 		>
 			<img
-				src={_.get(card, 'url', '../static/img/card-back.jpg')}
+				src={_.get(card, 'url', 'img/card-back.jpg')}
 				alt={_.get(card, 'name', 'No card to display')}
 				onClick={onClick}
 			/>

@@ -11,7 +11,7 @@ export default function MainDeck(props) {
 
 	const topCardUrl = props.topCardOverride
 		? props.topCardOverride.url
-		: _.get(props, 'cards[0].url', '../static/img/card-back.jpg');
+		: _.get(props, 'cards[0].url', 'img/card-back.jpg');
 
 	return (
 		<div className="main-deck">
