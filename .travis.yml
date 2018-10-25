@@ -1,0 +1,16 @@
+language: node_js
+node_js: "node"
+script: npm run build
+cache:
+  directories:
+    - "node_modules"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: ./dist
+  repo: bass-dandy/planechase
+  target_branch: gh-pages
+  fqdn: "teysa-envoy-of-g.host"
+  on:
+    branch: master
