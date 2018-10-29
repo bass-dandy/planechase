@@ -15,12 +15,12 @@ export default function CardButton(props) {
 	return (
 		<button
 			className={classnames('card-button', className || '')}
+			onClick={onClick}
 			{...passthroughProps}
 		>
 			<img
 				src={_.get(card, 'url', 'img/card-back.jpg')}
 				alt={_.get(card, 'name', 'No card to display')}
-				onClick={onClick}
 			/>
 			{ label ? (
 				<div className="card-button-label">

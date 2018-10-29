@@ -11,6 +11,7 @@
 		border-radius: 7px;
 		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.55);
 		transition: transform 0.1s;
+		box-sizing: border-box;
 	}
 
 	.card-button-label {
@@ -34,10 +35,11 @@
 		}
 	}
 
-	&:hover {
+	&:hover:not(:disabled) {
 		cursor: pointer;
 
 		img {
+			box-sizing: border-box;
 			transform: scale(1.05, 1.05);
 		}
 

@@ -6,7 +6,7 @@ import {Drawer, Tabs, Tab} from '@material-ui/core';
 
 import Decks from './containers/decks';
 import Vanilla from './containers/vanilla';
-import EternitiesMap from './components/eternities-map';
+import EternitiesMap from './containers/eternities-map';
 import Nav from './components/nav';
 import {actions} from './redux/ducks/decks';
 
