@@ -1,12 +1,61 @@
-.planar-die {
+.planar-die-container {
+	@size: 30px;
+
 	position: absolute;
-	right: 10px;
+	right: @size;
 	top: 50%;
-	transform: translateY(-50%);
-	width: 2em;
-	height: 2em;
-	min-width: 0;
-	min-height: 0;
-	padding: 0;
-	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+	perspective: 100px;
+	transition: transform 0.1s;
+
+	.planar-die-button {
+		position: absolute;
+		opacity: 0;
+		height: @size;
+		width: @size;
+		margin: -@size / 2;
+		cursor: pointer;
+	}
+
+	.planar-die {
+		position: absolute;
+		transform-style: preserve-3d;
+		transition: transform 0.2s;
+		pointer-events: none;
+
+		.face {
+			position: absolute;
+			height: @size;
+			width: @size;
+			margin: -@size / 2;
+			border-radius: 2px;
+			background: linear-gradient(45deg, rgba(255, 107, 139, 0.7) 30%, rgba(255, 142, 83, 0.7) 90%);
+			color: white;
+			text-align: center;
+			line-height: @size;
+
+			.planar-die-icon {
+				vertical-align: middle;
+			}
+		}
+
+		// construct cube
+		.front {
+			transform: rotate3d(0, 1, 0, 0deg) translateZ(@size/2);
+		}
+		.right {
+			transform: rotate3d(0, 1, 0, 90deg) translateZ(@size/2);
+		}
+		.back {
+			transform: rotate3d(0, 1, 0, 180deg) translateZ(@size/2);
+		}
+		.left {
+			transform: rotate3d(0, 1, 0 , 270deg) translateZ(@size/2);
+		}
+		.top {
+			transform: rotate3d(1, 0, 0, 90deg) translateZ(@size/2);
+		}
+		.bottom {
+			transform: rotate3d(1, 0, 0, -90deg) translateZ(@size/2);
+		}
+	}
 }

@@ -7,6 +7,7 @@ export default function PlanechaseIcon(props) {
 		<SvgIcon
 			viewBox="0 0 700.000000 507.000000"
 			fontSize={props.fontSize}
+			className={props.className}
 		>
 			<g transform="translate(0.000000,507.000000) scale(0.100000,-0.100000)">
 				<path
@@ -81,6 +82,7 @@ export default function PlanechaseIcon(props) {
 }
 
 PlanechaseIcon.propTypes = {
+	className: PropTypes.string,
 	fontSize: PropTypes.string
 };
 

@@ -7,6 +7,7 @@ export default function PlaneswalkIcon(props) {
 		<SvgIcon
 			viewBox="0 0 600 1000"
 			fontSize={props.fontSize}
+			className={props.className}
 		>
 			<g transform="translate(-307.32143,422.67596)">
 				<g transform="matrix(3.7037037,0,0,-3.7037037,307.32143,688.43515)">
@@ -22,6 +23,7 @@ export default function PlaneswalkIcon(props) {
 }
 
 PlaneswalkIcon.propTypes = {
+	className: PropTypes.string,
 	fontSize: PropTypes.string
 };
 
