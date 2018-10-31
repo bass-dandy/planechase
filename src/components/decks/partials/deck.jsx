@@ -7,12 +7,14 @@ import {Icon, IconButton, Tooltip} from '@material-ui/core';
 
 import EditDialog from './edit-dialog';
 import CardButton from '../../card-button';
+import IsMobile from '../../is-mobile';
 
-export default class Deck extends React.Component {
+class Deck extends React.Component {
 
 	static propTypes = {
 		deck: PropTypes.object.isRequired,
-		selectedDeck: PropTypes.object
+		selectedDeck: PropTypes.object,
+		isMobile: PropTypes.bool
 	}
 
 	state = {
@@ -28,40 +30,40 @@ export default class Deck extends React.Component {
 	}
 
 	render() {
-		const {deck, selectedDeck} = this.props;
+		const {deck, selectedDeck, isMobile} = this.props;
 		const selected = !_.isNil(selectedDeck) && _.get(selectedDeck, 'id') === deck.id;
 
 		return (
 			<div className="deck">
-				<div className="deck-name">
-					{deck.name || '[no name]'}
-				</div>
-				<div className="deck-container">
-					<CardButton
-						className={classnames({selected})}
-						card={_.get(deck, 'cards[0]')}
-						onClick={deck.select}
-						label="Use This Deck"
-					/>
+				<div className="deck-top-row">
+					<div className="deck-name">
+						{deck.name || '[no name]'}
+					</div>
 					<div className="deck-actions">
-						<Tooltip placement="right" title="Edit">
+						<Tooltip placement="top" title="Edit">
 							<IconButton
 								className="deck-action"
 								onClick={this.openEditDialog}
 							>
-								<Icon fontSize="small">edit</Icon>
+								<Icon fontSize={isMobile ? 'default' : 'small'}>edit</Icon>
 							</IconButton>
 						</Tooltip>
-						<Tooltip placement="right" title="Delete">
+						<Tooltip placement="top" title="Delete">
 							<IconButton
 								className="deck-action"
 								onClick={deck.remove}
 							>
-								<Icon fontSize="small">delete_forever</Icon>
+								<Icon fontSize={isMobile ? 'default' : 'small'}>delete_forever</Icon>
 							</IconButton>
 						</Tooltip>
 					</div>
 				</div>
+				<CardButton
+					className={classnames({selected})}
+					card={_.get(deck, 'cards[0]')}
+					onClick={deck.select}
+					label="Use This Deck"
+				/>
 				<EditDialog
 					open={this.state.showEditDialog}
 					onClose={this.closeEditDialog}
@@ -71,3 +73,5 @@ export default class Deck extends React.Component {
 		);
 	}
 }
+
+export default IsMobile(Deck);

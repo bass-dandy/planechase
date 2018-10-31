@@ -42,7 +42,7 @@ class App extends React.Component {
 							onChange={(e, value) => this.setState({tab: value})}
 						>
 							<Tab label="Vanilla"/>
-							<Tab label="Eternities Map"/>
+							<Tab label="Eternities"/>
 						</Tabs>
 					</Nav>
 					<div className="tab-content">

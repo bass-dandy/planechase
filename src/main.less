@@ -1,4 +1,5 @@
-@sidebar-width: 210px;
+@sidebar-width: 300px;
+@mobile-cutoff: 550px;
 
 @import "./components/card-button/card-button";
 @import "./components/card-selection-form/card-selection-form";
@@ -30,5 +31,11 @@ html body {
 		flex: 1;
 		position: relative;
 		overflow: auto;
+	}
+}
+
+@media screen and (max-width: @mobile-cutoff) {
+	.main.sidebar-open {
+		margin-left: 0;
 	}
 }

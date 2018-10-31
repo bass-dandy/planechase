@@ -1,4 +1,4 @@
-.main-deck {
+.vanilla-deck {
 	margin: auto;
 	text-align: center;
 
@@ -9,6 +9,23 @@
 			width: 500px;
 			border-radius: 20px;
 			box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+		}
+	}
+}
+
+@media screen and (max-width: @mobile-cutoff) {
+	.vanilla-deck {
+		.card-container {
+			height: 500px;
+			width: 100vw;
+			overflow: hidden;
+
+			img {
+				position: relative;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) rotate(90deg);
+			}
 		}
 	}
 }

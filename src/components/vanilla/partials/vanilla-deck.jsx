@@ -14,7 +14,7 @@ export default function MainDeck(props) {
 		: _.get(props, 'cards[0].url', 'img/card-back.jpg');
 
 	return (
-		<div className="main-deck">
+		<div className="vanilla-deck">
 			<div className="card-container">
 				<img src={topCardUrl}/>
 			</div>
