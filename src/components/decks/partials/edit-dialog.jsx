@@ -11,13 +11,15 @@ import {
 
 import DeckNameForm from './deck-name-form';
 import CardSelectionForm from '../../card-selection-form';
+import IsMobile from '../../is-mobile';
 
-export default class EditDialog extends React.Component {
+class EditDialog extends React.Component {
 
 	static propTypes = {
 		open: PropTypes.bool,
 		onClose: PropTypes.func.isRequired,
-		deck: PropTypes.object.isRequired
+		deck: PropTypes.object.isRequired,
+		isMobile: PropTypes.bool
 	}
 
 	submit = () => {
@@ -32,9 +34,10 @@ export default class EditDialog extends React.Component {
 				open={this.props.open}
 				onClose={this.props.onClose}
 				maxWidth="md"
+				fullScreen={this.props.isMobile}
 			>
 				<DialogTitle>Edit Deck</DialogTitle>
-				<DialogContent>
+				<DialogContent className="edit-dialog-content">
 					<DeckNameForm
 						ref={(e) => { this.deckNameForm = e; }}
 						deck={this.props.deck}
@@ -56,3 +59,5 @@ export default class EditDialog extends React.Component {
 		);
 	}
 }
+
+export default IsMobile(EditDialog);

@@ -1,4 +1,5 @@
 .card-selection-form {
+	white-space: nowrap;
 
 	.filter-list {
 		display: flex;
@@ -43,5 +44,23 @@
 
 	.card-preview {
 		height: 300px;
+	}
+}
+
+@media screen and (max-width: @mobile-cutoff) {
+	.card-selection-form {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+
+		.card-list {
+			flex: 1;
+			width: 100%;
+			margin-right: 0;
+		}
+
+		.card-preview {
+			display: none;
+		}
 	}
 }
