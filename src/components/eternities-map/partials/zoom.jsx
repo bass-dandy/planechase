@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Matrix from '../../../lib/matrix';
 
-export default class Transform extends React.Component {
+export default class Zoom extends React.Component {
 
 	static propTypes = {
 		scale: PropTypes.number.isRequired,
@@ -59,7 +59,7 @@ export default class Transform extends React.Component {
 
 		return (
 			<div
-				className="eternities-map-transform"
+				className="eternities-map-zoom"
 				style={style}
 				ref={(e) => { this.ref = e; }}
 			>

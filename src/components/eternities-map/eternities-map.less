@@ -1,8 +1,17 @@
 .eternities-map {
 	@import "./partials/board";
-	@import "./partials/transform";
+	@import "./partials/pan";
+	@import "./partials/zoom";
 
 	display: flex;
 	flex: 1;
 	overflow: hidden;
+
+	&.panning, &.panning * {
+		cursor: move;
+	}
+
+	&.panning * {
+		pointer-events: none;
+	}
 }
