@@ -45,7 +45,7 @@ class App extends React.Component {
 							<Tab label="Eternities"/>
 						</Tabs>
 					</Nav>
-					<div className="tab-content">
+					<div id="tab-content">
 						{ this.state.tab === 0 && <Vanilla/> }
 						{ this.state.tab === 1 && <EternitiesMap/> }
 					</div>

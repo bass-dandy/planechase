@@ -1,0 +1,49 @@
+.eternities-map-board {
+	display: table;
+	margin: auto;
+
+	.map-row {
+		display: table-row;
+
+		.map-cell {
+			display: table-cell;
+			padding: 3px;
+
+			&.current {
+				position: relative;
+				z-index: 1;
+			}
+
+			.card-button {
+				margin: 0;
+				animation: eternities-map-fade-in 0.5s forwards;
+
+				img {
+					opacity: 1;
+					transition: opacity 0.5s, filter 0.5s;
+				}
+
+				&.current img {
+					border: 2px solid rgb(0, 255, 0);
+					animation: eternities-map-card-pulse 2.5s ease-in-out infinite alternate;
+				}
+
+				&:disabled:not(.current) img {
+					opacity: 0.6;
+					box-shadow: none;
+					filter: sepia(100%);
+				}
+			}
+		}
+	}
+}
+
+@keyframes eternities-map-fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes eternities-map-card-pulse {
+	from { transform: scale(1.05, 1.05); }
+	to { transform: scale(1.12, 1.12); }
+}
