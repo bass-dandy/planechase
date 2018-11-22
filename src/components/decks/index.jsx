@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {Icon, IconButton} from '@material-ui/core';
 
 import Deck from './partials/deck';
+import EmptyMessage from './partials/empty-message';
 
 export default function Decks(props) {
 	return (
@@ -23,15 +24,19 @@ export default function Decks(props) {
 				</IconButton>
 			</div>
 			<div className="decks-list">
-				{ props.decks.map((deck) => {
-					return (
-						<Deck
-							key={deck.id}
-							deck={deck}
-							selectedDeck={props.selectedDeck}
-						/>
-					);
-				}) }
+				{
+					props.decks.length > 0
+						? props.decks.map((deck) => {
+							return (
+								<Deck
+									key={deck.id}
+									deck={deck}
+									selectedDeck={props.selectedDeck}
+								/>
+							);
+						})
+						: <EmptyMessage/>
+				}
 			</div>
 		</div>
 	);
