@@ -32,9 +32,10 @@ export const types = {
 };
 
 export const actions = {
-	addDeck() {
+	addDeck(name = '', cards = []) {
 		return {
-			type: types.ADD_DECK
+			type: types.ADD_DECK,
+			payload: {name, cards}
 		};
 	},
 	removeDeck(id) {
@@ -85,8 +86,8 @@ export default function reducer(state = DEFAULT_STATE, {type, payload}) {
 			case types.ADD_DECK: {
 				draft.decks.push({
 					id: Date.now(),
-					name: '',
-					cards: []
+					name: payload.name,
+					cards: payload.cards
 				});
 				saveDecks(draft.decks);
 				break;

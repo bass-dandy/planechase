@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import produce from 'immer';
 
-import CardList from './partials/card-list';
-import Sort from './partials/sort';
-import Filter from './partials/filter';
-import CARDS from '../../cards.json';
+import CardList from './card-list';
+import Sort from './sort';
+import Filter from './filter';
+import CARDS from '../../../cards.json';
 
 const SORT_KEYS = {
 	name: 'name',
@@ -45,7 +45,7 @@ function sortCards(cards, sort) {
 export default class CardSelectionForm extends React.Component {
 
 	static propTypes = {
-		deck: PropTypes.object.isRequired
+		deck: PropTypes.object
 	}
 
 	constructor(props) {
@@ -57,10 +57,12 @@ export default class CardSelectionForm extends React.Component {
 			return acc;
 		}, {});
 
-		// select cards previously added to deck
-		_.forEach(props.deck.cards, (card) => {
-			selectedCards[card.id] = true;
-		});
+		// if we are editing an existing deck, select cards previously added to deck
+		if (props.deck) {
+			_.forEach(props.deck.cards, (card) => {
+				selectedCards[card.id] = true;
+			});
+		}
 
 		this.state = {
 			cards: sortCards(CARDS, SORT_KEYS.name),
@@ -71,16 +73,13 @@ export default class CardSelectionForm extends React.Component {
 		};
 	}
 
-	// public method for submitting this form through some other form
-	submit = () => {
-		this.props.deck.setCards(
-			_.reduce(this.state.selectedCards, (acc, isChecked, cardId) => {
-				if (isChecked) {
-					acc.push(CARDS[cardId]);
-				}
-				return acc;
-			}, [])
-		);
+	get value() {
+		return _.reduce(this.state.selectedCards, (acc, isChecked, cardId) => {
+			if (isChecked) {
+				acc.push(CARDS[cardId]);
+			}
+			return acc;
+		}, []);
 	}
 
 	onSelectCard = (cardId) => {
@@ -146,7 +145,7 @@ export default class CardSelectionForm extends React.Component {
 				/>
 				<img
 					className="card-preview"
-					src={`${this.state.previewCard ? this.state.previewCard.url : 'img/card-back.jpg'}`}
+					src={_.get(this.state, 'previewCard.url', 'img/card-back.jpg')}
 				/>
 			</div>
 		);

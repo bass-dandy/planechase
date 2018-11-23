@@ -7,6 +7,7 @@ import {Drawer, Tabs, Tab} from '@material-ui/core';
 import Decks from './containers/decks';
 import Vanilla from './containers/vanilla';
 import EternitiesMap from './containers/eternities-map';
+import DeckBuilder from './containers/deck-builder';
 import Nav from './components/nav';
 import {actions} from './redux/ducks/decks';
 
@@ -50,6 +51,7 @@ class App extends React.Component {
 						{ this.state.tab === 1 && <EternitiesMap/> }
 					</div>
 				</div>
+				<DeckBuilder/>
 			</>
 		);
 	}

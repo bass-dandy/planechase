@@ -9,22 +9,27 @@ import {
 	DialogActions
 } from '@material-ui/core';
 
-import DeckNameForm from './deck-name-form';
-import CardSelectionForm from '../../card-selection-form';
-import IsMobile from '../../is-mobile';
+import DeckNameForm from './partials/deck-name-form';
+import CardSelectionForm from './partials/card-selection-form';
+import IsMobile from '../is-mobile';
 
-class EditDialog extends React.Component {
+class DeckBuilder extends React.Component {
 
 	static propTypes = {
 		open: PropTypes.bool,
+		deck: PropTypes.object,
+		addDeck: PropTypes.func.isRequired,
 		onClose: PropTypes.func.isRequired,
-		deck: PropTypes.object.isRequired,
 		isMobile: PropTypes.bool
 	}
 
 	submit = () => {
-		this.deckNameForm.submit();
-		this.cardSelectionForm.submit();
+		if (this.props.deck) {
+			this.props.deck.setName(this.deckNameForm.value);
+			this.props.deck.setCards(this.cardSelectionForm.value);
+		} else {
+			this.props.addDeck(this.deckNameForm.value, this.cardSelectionForm.value);
+		}
 		this.props.onClose();
 	}
 
@@ -36,7 +41,9 @@ class EditDialog extends React.Component {
 				maxWidth="md"
 				fullScreen={this.props.isMobile}
 			>
-				<DialogTitle>Edit Deck</DialogTitle>
+				<DialogTitle>
+					{this.props.deck ? 'Edit Deck' : 'Create New Deck'}
+				</DialogTitle>
 				<DialogContent className="edit-dialog-content">
 					<DeckNameForm
 						ref={(e) => { this.deckNameForm = e; }}
@@ -51,7 +58,11 @@ class EditDialog extends React.Component {
 					<Button onClick={this.props.onClose}>
 						Cancel
 					</Button>
-					<Button onClick={this.submit} color="primary">
+					<Button
+						onClick={this.submit}
+						color="primary"
+						variant="contained"
+					>
 						Save
 					</Button>
 				</DialogActions>
@@ -60,4 +71,4 @@ class EditDialog extends React.Component {
 	}
 }
 
-export default IsMobile(EditDialog);
+export default IsMobile(DeckBuilder);

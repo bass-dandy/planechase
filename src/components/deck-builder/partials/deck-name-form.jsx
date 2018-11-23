@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import {TextField} from '@material-ui/core';
 
 export default class DeckNameForm extends React.Component {
 
 	static propTypes = {
-		deck: PropTypes.object.isRequired
+		deck: PropTypes.object
 	}
 
-	state = { name: this.props.deck.name }
+	state = {
+		name: _.get(this.props, 'deck.name', '')
+	}
 
-	// public method for submitting this form through some other form
-	submit = () => {
-		this.props.deck.setName(this.state.name);
+	get value() {
+		return this.state.name;
 	}
 
 	render() {

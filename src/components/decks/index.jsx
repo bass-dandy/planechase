@@ -18,7 +18,7 @@ export default function Decks(props) {
 				Planar Decks
 				<IconButton
 					className="add-deck"
-					onClick={props.addDeck}
+					onClick={props.createDeck}
 				>
 					<Icon>add_circle</Icon>
 				</IconButton>
@@ -45,6 +45,6 @@ export default function Decks(props) {
 Decks.propTypes = {
 	decks: PropTypes.arrayOf(PropTypes.object).isRequired,
 	selectedDeck: PropTypes.object,
-	addDeck: PropTypes.func.isRequired,
+	createDeck: PropTypes.func.isRequired,
 	toggle: PropTypes.func.isRequired
 };

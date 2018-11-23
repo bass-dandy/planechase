@@ -1,6 +1,7 @@
 import {applyMiddleware, createStore, compose, combineReducers} from 'redux';
 import {createLogger} from 'redux-logger';
 
+import deckBuilder from './ducks/deck-builder';
 import decks from './ducks/decks';
 import eternitiesMap from './ducks/eternities-map';
 import vanilla from './ducks/vanilla';
@@ -13,6 +14,7 @@ const logger = createLogger({
 });
 
 const reducer = combineReducers({
+	deckBuilder,
 	decks,
 	eternitiesMap,
 	vanilla
