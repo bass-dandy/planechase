@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import _ from 'lodash';
+import {Snackbar} from '@material-ui/core';
 
 import Board from './partials/board';
 import Pan from './partials/pan';
@@ -18,7 +19,8 @@ export default class EternitiesMap extends React.Component {
 		mousePos: undefined,
 		isMouseDown: false,
 		isPanning: false,
-		pan: {x: 0, y: 0}
+		pan: {x: 0, y: 0},
+		snackbarOpen: true
 	}
 
 	onWheel = (e) => {
@@ -97,6 +99,18 @@ export default class EternitiesMap extends React.Component {
 						/>
 					</Pan>
 				</Zoom>
+				<Snackbar
+					anchorOrigin={{
+						vertical: 'bottom',
+						horizontal: 'right'
+					}}
+					ContentProps={{
+						classes: { root: 'eternities-map-snackbar' }
+					}}
+					open={this.state.snackbarOpen}
+					onClose={() => this.setState({snackbarOpen: false})}
+					message="Scroll to zoom, click + drag to pan"
+				/>
 			</div>
 		);
 	}
