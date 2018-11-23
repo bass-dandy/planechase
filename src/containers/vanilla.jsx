@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 
 import Vanilla from '../components/vanilla';
+import NoDeckLoaded from '../components/no-deck-loaded';
 import {actions} from '../redux/ducks/vanilla';
 
 function VanillaContainer(props) {
-	return (
+	return props.deck ? (
 		<Vanilla
 			deck={props.deck}
 			pinCard={() => props.pinCard(props.deck.id)}
@@ -14,7 +15,7 @@ function VanillaContainer(props) {
 			planeswalk={() => props.planeswalk(props.deck.id)}
 			shuffle={() => props.shuffle(props.deck.id)}
 		/>
-	);
+	) : <NoDeckLoaded/>;
 }
 
 function mapStateToProps(state) {

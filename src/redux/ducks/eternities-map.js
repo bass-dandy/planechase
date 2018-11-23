@@ -8,7 +8,7 @@ const MAX_DISTANCE = 3;
 
 const DEFAULT_STATE = {
 	map: {}, // shape: { 'x,y': card }
-	deck: {}, // shape: { id, cards }
+	deck: null, // shape: { id, cards }
 	currentPos: null // shape: { x, y }
 };
 

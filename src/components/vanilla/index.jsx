@@ -7,18 +7,11 @@ import Pinboard from './partials/pinboard';
 export default class Vanilla extends React.Component {
 
 	static propTypes = {
-		deck: PropTypes.object,
+		deck: PropTypes.object.isRequired,
 		pinCard: PropTypes.func.isRequired,
 		unpinCard: PropTypes.func.isRequired,
 		planeswalk: PropTypes.func.isRequired,
 		shuffle: PropTypes.func.isRequired
-	}
-
-	static defaultProps = {
-		deck: {
-			deckCards: [],
-			pinnedCards: []
-		}
 	}
 
 	state = {

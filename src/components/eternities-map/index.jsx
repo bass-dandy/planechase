@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import _ from 'lodash';
 
 import Board from './partials/board';
 import Pan from './partials/pan';
@@ -9,13 +10,6 @@ import Zoom from './partials/zoom';
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 3.5;
 const ZOOM_SCALE_FACTOR = 0.0025;
-
-function clamp(val, min, max) {
-	return Math.min(
-		Math.max(val, min),
-		max
-	);
-}
 
 export default class EternitiesMap extends React.Component {
 
@@ -33,7 +27,7 @@ export default class EternitiesMap extends React.Component {
 
 		this.setState((state) => {
 			return {
-				scale: clamp(
+				scale: _.clamp(
 					state.scale - (e.deltaY * ZOOM_SCALE_FACTOR),
 					MIN_ZOOM,
 					MAX_ZOOM
