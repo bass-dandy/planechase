@@ -42,13 +42,12 @@ class DeckBuilder extends React.Component {
 				fullScreen={this.props.isMobile}
 			>
 				<DialogTitle>
-					{this.props.deck ? 'Edit Deck' : 'Create New Deck'}
-				</DialogTitle>
-				<DialogContent className="edit-dialog-content">
 					<DeckNameForm
 						ref={(e) => { this.deckNameForm = e; }}
 						deck={this.props.deck}
 					/>
+				</DialogTitle>
+				<DialogContent className="edit-dialog-content">
 					<CardSelectionForm
 						ref={(e) => { this.cardSelectionForm = e; }}
 						deck={this.props.deck}

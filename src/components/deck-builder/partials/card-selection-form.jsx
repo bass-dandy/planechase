@@ -16,9 +16,19 @@ const SORT_KEYS = {
 };
 
 function filterCards(cards, filters) {
+	const filtersByFilterKey = _.reduce(filters, (acc, filter) => {
+		const [filterKey, filterValue] = _.split(filter, ':');
+
+		if (!acc[filterKey]) {
+			acc[filterKey] = [];
+		}
+		acc[filterKey].push(filterValue);
+		return acc;
+	}, {});
+
 	return _.filter(cards, (card) => {
 		// only return cards that match every applied filter
-		return _.every(filters, (filterValue, filterKey) => {
+		return _.every(filtersByFilterKey, (filterValue, filterKey) => {
 			return _.includes(filterValue, card[filterKey]) || _.size(filterValue) === 0;
 		});
 	});
@@ -68,7 +78,7 @@ export default class CardSelectionForm extends React.Component {
 			cards: sortCards(CARDS, SORT_KEYS.name),
 			selectedCards,
 			sort: SORT_KEYS.name,
-			filters: {},
+			filters: [],
 			previewCard: null
 		};
 	}
@@ -106,11 +116,7 @@ export default class CardSelectionForm extends React.Component {
 		this.list.resetScroll();
 	}
 
-	setFilter = (filter, values) => {
-		const filters = produce(this.state.filters, (draft) => {
-			draft[filter] = values;
-		});
-
+	setFilters = (filters) => {
 		this.setState({
 			filters,
 			cards: sortCards(
@@ -125,24 +131,26 @@ export default class CardSelectionForm extends React.Component {
 	render() {
 		return (
 			<div className="card-selection-form">
-				<div className="filter-list">
-					<Sort
-						sortKeys={SORT_KEYS}
-						sort={this.state.sort}
-						setSort={this.setSort}
-					/>
-					<Filter
-						filters={this.state.filters}
-						setFilter={this.setFilter}
+				<div className="card-selector">
+					<div className="filter-list">
+						<Sort
+							sortKeys={SORT_KEYS}
+							sort={this.state.sort}
+							setSort={this.setSort}
+						/>
+						<Filter
+							filters={this.state.filters}
+							setFilters={this.setFilters}
+						/>
+					</div>
+					<CardList
+						ref={(e) => { this.list = e; }}
+						cardsByGroup={this.state.cards}
+						selectedCards={this.state.selectedCards}
+						onSelectCard={this.onSelectCard}
+						onCardHover={this.onCardHover}
 					/>
 				</div>
-				<CardList
-					ref={(e) => { this.list = e; }}
-					cardsByGroup={this.state.cards}
-					selectedCards={this.state.selectedCards}
-					onSelectCard={this.onSelectCard}
-					onCardHover={this.onCardHover}
-				/>
 				<img
 					className="card-preview"
 					src={_.get(this.state, 'previewCard.url', 'img/card-back.jpg')}

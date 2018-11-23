@@ -10,7 +10,7 @@ export default class DeckNameForm extends React.Component {
 	}
 
 	state = {
-		name: _.get(this.props, 'deck.name', '')
+		name: _.get(this.props, 'deck.name', 'New Deck')
 	}
 
 	get value() {
@@ -22,6 +22,7 @@ export default class DeckNameForm extends React.Component {
 			<TextField
 				className="edit-deck-name"
 				label="Deck Name"
+				variant="outlined"
 				value={this.state.name}
 				onChange={(e) => this.setState({ name: e.target.value })}
 			/>

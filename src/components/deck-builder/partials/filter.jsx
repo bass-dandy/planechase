@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {Select, MenuItem, InputLabel, FormControl, Icon} from '@material-ui/core';
+import {
+	Select,
+	MenuItem,
+	InputLabel,
+	FormControl,
+	Checkbox
+} from '@material-ui/core';
 
 import CARDS from '../../../cards.json';
 
 // the card keys we want to be able to filter on
-const FILTER_KEYS = ['year', 'set', 'type'];
+const FILTER_KEYS = ['year', 'type', 'set'];
 
 // the values we want to be able to filter for (by card key)
 const FILTER_VALUES_FOR_KEY = {};
@@ -23,40 +29,60 @@ _.forEach(FILTER_KEYS, (filterKey) => {
 });
 
 export default function Filter(props) {
-	return _.map(FILTER_KEYS, (filterKey) => (
-		<FormControl
-			key={filterKey}
-			className="card-filter"
-		>
-			<InputLabel htmlFor={`set-card-filter-${filterKey}`}>
-				{_.startCase(filterKey)}
+	const menuItems = [];
+
+	_.forEach(FILTER_KEYS, (filterKey) => {
+		// a bit of a hack to give us a "header" for each filter category
+		menuItems.push(
+			<MenuItem
+				key={filterKey}
+				disabled
+				classes={{ root: 'filter-header' }}
+			>
+				{filterKey}
+			</MenuItem>
+		);
+
+		// then push each value for the filter category
+		_.forEach(FILTER_VALUES_FOR_KEY[filterKey], (filterValue) => {
+			menuItems.push(
+				<MenuItem
+					key={filterValue}
+					value={`${filterKey}:${filterValue}`}
+					classes={{ root: 'filter-option' }}
+				>
+					<Checkbox
+						color="secondary"
+						checked={_.includes(props.filters, `${filterKey}:${filterValue}`)}
+					/>
+					{filterValue}
+				</MenuItem>
+			);
+		});
+	});
+
+	return (
+		<FormControl className="card-filter">
+			<InputLabel htmlFor="set-card-filter">
+				Filter
 			</InputLabel>
 			<Select
 				multiple
-				value={_.get(props, `filters[${filterKey}]`, [])}
-				onChange={(e) => props.setFilter(filterKey, e.target.value)}
+				value={props.filters}
 				inputProps={{
-					id: `set-card-filter-${filterKey}`,
-					name: filterKey
+					id: 'set-card-filter',
+					name: 'Filter'
 				}}
-				IconComponent={(props) => (
-					<Icon fontSize="inherit" className="filter-dropdown-arrow">filter_list</Icon>
-				)}
+				onChange={(e) => props.setFilters(e.target.value)}
+				renderValue={(values) => values.map((value) => value.split(':')[1]).join(', ')}
 			>
-			{ _.map(FILTER_VALUES_FOR_KEY[filterKey], (filterValue) => (
-				<MenuItem
-					key={filterValue}
-					value={filterValue}
-				>
-					{_.startCase(filterValue)}
-				</MenuItem>
-			)) }
+				{menuItems}
 			</Select>
 		</FormControl>
-	));
+	);
 }
 
 Filter.propTypes = {
-	filters: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
-	setFilter: PropTypes.func.isRequired
+	filters: PropTypes.arrayOf(PropTypes.string).isRequired,
+	setFilters: PropTypes.func.isRequired
 };
