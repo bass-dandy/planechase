@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import produce from 'immer';
+import {Button, Icon} from '@material-ui/core';
 
 import CardList from './card-list';
 import Sort from './sort';
@@ -116,6 +117,28 @@ export default class CardSelectionForm extends React.Component {
 		this.list.resetScroll();
 	}
 
+	selectAll = () => {
+		const filteredCards = filterCards(CARDS, this.state.filters);
+		console.log(filteredCards, this.state.selectedCards);
+
+		this.setState((state) => {
+			return {
+				selectedCards: _.reduce(state.selectedCards, (acc, isSelected, id) => {
+					acc[id] = isSelected || _.some(filteredCards, {id});
+					return acc;
+				}, {})
+			};
+		});
+	}
+
+	clearSelection = () => {
+		this.setState((state) => {
+			return {
+				selectedCards: _.mapValues(state.selectedCards, () => false)
+			};
+		});
+	}
+
 	setFilters = (filters) => {
 		this.setState({
 			filters,
@@ -142,6 +165,27 @@ export default class CardSelectionForm extends React.Component {
 							filters={this.state.filters}
 							setFilters={this.setFilters}
 						/>
+					</div>
+					<div className="list-actions">
+						<Button
+							onClick={this.selectAll}
+							className="list-action"
+							variant="outlined"
+							color="primary"
+						>
+							<Icon>done_all</Icon>
+							Select Filtered
+						</Button>
+						<Button
+							onClick={this.clearSelection}
+							className="list-action"
+							variant="outlined"
+							color="secondary"
+							disabled={!_.some(this.state.selectedCards)}
+						>
+							<Icon>clear</Icon>
+							Clear Selected
+						</Button>
 					</div>
 					<CardList
 						ref={(e) => { this.list = e; }}
