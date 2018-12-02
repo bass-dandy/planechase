@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import classnames from 'classnames';
 
-import {Icon, IconButton, Tooltip} from '@material-ui/core';
+import {IconButton, Tooltip} from '@material-ui/core';
+import {Edit as EditIcon, DeleteForever as DeleteForeverIcon} from '@material-ui/icons';
 
 import CardButton from '../../card-button';
 import IsMobile from '../../is-mobile';
@@ -24,7 +25,7 @@ function Deck(props) {
 							className="deck-action"
 							onClick={deck.edit}
 						>
-							<Icon fontSize={isMobile ? 'default' : 'small'}>edit</Icon>
+							<EditIcon fontSize={isMobile ? 'default' : 'small'}/>
 						</IconButton>
 					</Tooltip>
 					<Tooltip placement="top" title="Delete">
@@ -32,7 +33,7 @@ function Deck(props) {
 							className="deck-action"
 							onClick={deck.remove}
 						>
-							<Icon fontSize={isMobile ? 'default' : 'small'}>delete_forever</Icon>
+							<DeleteForeverIcon fontSize={isMobile ? 'default' : 'small'}/>
 						</IconButton>
 					</Tooltip>
 				</div>

@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import produce from 'immer';
-import {Button, Icon} from '@material-ui/core';
+
+import {Button} from '@material-ui/core';
+import {DoneAll as DoneAllIcon, Clear as ClearIcon} from '@material-ui/icons';
 
 import CardList from './card-list';
 import Sort from './sort';
@@ -119,7 +121,6 @@ export default class CardSelectionForm extends React.Component {
 
 	selectAll = () => {
 		const filteredCards = filterCards(CARDS, this.state.filters);
-		console.log(filteredCards, this.state.selectedCards);
 
 		this.setState((state) => {
 			return {
@@ -173,7 +174,7 @@ export default class CardSelectionForm extends React.Component {
 							variant="outlined"
 							color="primary"
 						>
-							<Icon>done_all</Icon>
+							<DoneAllIcon/>
 							Select Filtered
 						</Button>
 						<Button
@@ -183,7 +184,7 @@ export default class CardSelectionForm extends React.Component {
 							color="secondary"
 							disabled={!_.some(this.state.selectedCards)}
 						>
-							<Icon>clear</Icon>
+							<ClearIcon/>
 							Clear Selected
 						</Button>
 					</div>

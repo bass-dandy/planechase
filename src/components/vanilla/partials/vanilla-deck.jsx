@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import {Icon, IconButton, Tooltip} from '@material-ui/core';
+import {IconButton, Tooltip} from '@material-ui/core';
+import {Shuffle as ShuffleIcon, Tab as TabIcon} from '@material-ui/icons';
 
 import PlaneswalkIcon from '../../planeswalk-icon';
 
@@ -33,7 +34,7 @@ export default function MainDeck(props) {
 					onClick={props.shuffle}
 					disabled={disabled}
 				>
-					<Icon>shuffle</Icon>
+					<ShuffleIcon/>
 				</IconButton>
 			</Tooltip>
 			<Tooltip placement="bottom" title="Set Card Aside">
@@ -42,7 +43,7 @@ export default function MainDeck(props) {
 					onClick={props.pinCard}
 					disabled={disabled}
 				>
-					<Icon>tab</Icon>
+					<TabIcon/>
 				</IconButton>
 			</Tooltip>
 		</div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {IconButton, Icon} from '@material-ui/core';
+import {IconButton} from '@material-ui/core';
+import {Menu as MenuIcon} from '@material-ui/icons';
 
 import PlanarDie from './partials/planar-die';
 
@@ -10,7 +11,7 @@ export default function Nav(props) {
 		<div className="nav">
 			{ !props.sidebarOpen ? (
 				<IconButton onClick={props.toggleSidebar}>
-					<Icon>menu</Icon>
+					<MenuIcon/>
 				</IconButton>
 			) : null }
 			<div className="nav-content">

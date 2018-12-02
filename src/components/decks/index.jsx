@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Icon, IconButton} from '@material-ui/core';
+import {IconButton} from '@material-ui/core';
+import {KeyboardArrowLeft as ArrowLeftIcon, AddCircle as AddCircleIcon} from '@material-ui/icons';
 
 import Deck from './partials/deck';
 import EmptyMessage from './partials/empty-message';
@@ -11,7 +12,7 @@ export default function Decks(props) {
 		<div className="decks">
 			<div className="decks-sidebar-control">
 				<IconButton onClick={props.toggle}>
-					<Icon>keyboard_arrow_left</Icon>
+					<ArrowLeftIcon/>
 				</IconButton>
 			</div>
 			<div className="decks-title">
@@ -20,7 +21,7 @@ export default function Decks(props) {
 					className="add-deck"
 					onClick={props.createDeck}
 				>
-					<Icon>add_circle</Icon>
+					<AddCircleIcon/>
 				</IconButton>
 			</div>
 			<div className="decks-list">
